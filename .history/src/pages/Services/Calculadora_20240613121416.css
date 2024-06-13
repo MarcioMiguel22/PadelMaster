@@ -1,0 +1,75 @@
+.calculadora-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.jogadores-lista {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 10px;
+}
+
+.jogadores-coluna {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.jogador-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.jogador-item label {
+  margin-right: 10px;
+}
+
+.jogador-item input {
+  flex: 1;
+}
+
+.fields-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 50%;
+  padding: 10px;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.field ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.team {
+  margin-bottom: 5px;
+}
+
+.distribute-button {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.distribute-button:hover {
+  background-color: #0056b3;
+}

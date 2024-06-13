@@ -1,6 +1,3 @@
-
-///home/marciomiguel/code/MarcioMiguel22/Sites/PadelMaster/src/App.tsx
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Calculadora from './pages/Services/Calculadora';

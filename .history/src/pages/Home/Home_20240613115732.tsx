@@ -8,7 +8,7 @@ const PadelPage: React.FC = () => {
 
   return (
     <div className="padel-container">
-      <h1>PadelMaster</h1>
+      <h1>Bem-vindo ao PadelMaster</h1>
       <img src={padelImage} alt="Imagem de Padel" className="padel-image" />
       <button className="enter-button" onClick={() => navigate('/calculadora')}>Entrar</button>
     </div>

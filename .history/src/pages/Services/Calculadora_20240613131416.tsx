@@ -4,8 +4,6 @@ import './Calculadora.css';
 type Jogador = {
   id: number;
   nome: string;
-  vitorias: number;
-  pontos: number;
 };
 
 type Time = {
@@ -21,8 +19,6 @@ type Campo = {
 const jogadoresIniciais: Jogador[] = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
   nome: `Jogador ${i + 1}`,
-  vitorias: 0,
-  pontos: 0,
 }));
 
 const embaralharArray = <T,>(array: T[]): T[] => {
@@ -48,24 +44,6 @@ const criarCampos = (times: Time[]): Campo[] => [
   { id: 2, times: times.slice(2, 4) },
   { id: 3, times: times.slice(4, 6) },
 ];
-
-const separarDuplas = (jogadores: Jogador[]): Jogador[] => {
-  const separados: Jogador[] = [];
-  while (jogadores.length) {
-    const [jogador1, jogador2] = jogadores.splice(0, 2);
-    separados.push(jogador1);
-    if (jogador2) separados.push(jogador2);
-  }
-  return separados;
-};
-
-const separarTimes = (times: Time[]): Jogador[] => {
-  const jogadores: Jogador[] = [];
-  times.forEach(time => {
-    jogadores.push(...time.jogadores);
-  });
-  return jogadores;
-};
 
 const CalculadoraApp: React.FC = () => {
   const [jogadores, setJogadores] = useState<Jogador[]>(jogadoresIniciais);
@@ -132,49 +110,24 @@ const CalculadoraApp: React.FC = () => {
       { id: 3, times: [] },
     ];
 
-    let jogadoresCampo1Vencedores: Jogador[] = [];
-    let jogadoresCampo2Vencedores: Jogador[] = [];
-    let jogadoresCampo3Vencedores: Jogador[] = [];
-    let jogadoresCampo1Perdedores: Jogador[] = [];
-    let jogadoresCampo2Perdedores: Jogador[] = [];
-    let jogadoresCampo3Perdedores: Jogador[] = [];
-
     ultimoJogo.forEach(campo => {
       if (campo.times.length === 2) {
         const [time1, time2] = campo.times;
         const vencedores = time1.resultado > time2.resultado ? time1.jogadores : time2.jogadores;
         const perdedores = time1.resultado > time2.resultado ? time2.jogadores : time1.jogadores;
 
-        const margemVitoria = Math.abs(time1.resultado - time2.resultado);
-
-        vencedores.forEach(jogador => {
-          jogador.vitorias += 1;
-          jogador.pontos += margemVitoria;
-        });
-
         if (campo.id === 1) {
-          jogadoresCampo1Vencedores = vencedores;
-          jogadoresCampo1Perdedores = perdedores;
+          novosCampos[0].times.push({ jogadores: vencedores, resultado: 0 });
+          novosCampos[1].times.push({ jogadores: perdedores, resultado: 0 });
         } else if (campo.id === 2) {
-          jogadoresCampo2Vencedores = vencedores;
-          jogadoresCampo2Perdedores = perdedores;
+          novosCampos[0].times.push({ jogadores: vencedores, resultado: 0 });
+          novosCampos[2].times.push({ jogadores: perdedores, resultado: 0 });
         } else if (campo.id === 3) {
-          jogadoresCampo3Vencedores = vencedores;
-          jogadoresCampo3Perdedores = perdedores;
+          novosCampos[1].times.push({ jogadores: vencedores, resultado: 0 });
+          novosCampos[2].times.push({ jogadores: perdedores, resultado: 0 });
         }
       }
     });
-
-    const novasDuplasCampo1 = separarDuplas(jogadoresCampo1Vencedores);
-    const novasDuplasCampo2 = separarDuplas([...jogadoresCampo2Vencedores, ...jogadoresCampo1Perdedores]);
-    const novasDuplasCampo3 = separarDuplas([...jogadoresCampo3Vencedores, ...jogadoresCampo2Perdedores, ...jogadoresCampo3Perdedores]);
-
-    novosCampos[0].times.push({ jogadores: [novasDuplasCampo1[0], novasDuplasCampo1[1]], resultado: 0 });
-    novosCampos[0].times.push({ jogadores: [novasDuplasCampo1[2], novasDuplasCampo1[3]], resultado: 0 });
-    novosCampos[1].times.push({ jogadores: [novasDuplasCampo2[0], novasDuplasCampo2[1]], resultado: 0 });
-    novosCampos[1].times.push({ jogadores: [novasDuplasCampo2[2], novasDuplasCampo2[3]], resultado: 0 });
-    novosCampos[2].times.push({ jogadores: [novasDuplasCampo3[0], novasDuplasCampo3[1]], resultado: 0 });
-    novosCampos[2].times.push({ jogadores: [novasDuplasCampo3[2], novasDuplasCampo3[3]], resultado: 0 });
 
     setJogos([...jogos, novosCampos]);
   };
@@ -187,17 +140,6 @@ const CalculadoraApp: React.FC = () => {
     if (resultadoAtual < resultadoOponente) return 'team perdedor';
     return 'team';
   };
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const jogadoresClassificados = [...jogadores].sort((a, b) => {
-    if (b.vitorias === a.vitorias) {
-      return b.pontos - a.pontos;
-    }
-    return b.vitorias - a.vitorias;
-  });
 
   return (
     <div className="calculadora-container">
@@ -244,57 +186,44 @@ const CalculadoraApp: React.FC = () => {
         <div className="fields-container">
           <button onClick={distribuirJogadores} className="distribute-button">Distribuir Jogadores</button>
           {jogos.map((jogo, jogoIndex) => (
-            <div key={jogoIndex} className="jogo">
+            <div key={jogoIndex}>
               <h2>Resultados Jogo {jogoIndex + 1}</h2>
-              <div className="campos">
-                {jogo.map(campo => (
-                  <div key={campo.id} className="field">
-                    <h2>Campo {campo.id}</h2>
-                    <ul>
-                      {campo.times.map((time, idx) => (
-                        <li key={idx} className={getTeamClass(campo, idx)}>
-                          <div>
-                            {time.jogadores.map((jogador, jogadorIndex) => (
-                              <span key={jogador.id}>
-                                <input
-                                  type="text"
-                                  value={jogador.nome}
-                                  onChange={(e) => handleNomeEdit(jogoIndex, campo.id, idx, jogadorIndex, e.target.value)}
-                                  className="jogador-input"
-                                />
-                                {jogadorIndex === 0 ? ' e ' : ''}
-                              </span>
-                            ))}
-                            <input
-                              type="number"
-                              value={time.resultado}
-                              onChange={(e) => handleResultadoChange(jogoIndex, campo.id, idx, parseInt(e.target.value))}
-                              className="resultado-input"
-                            />
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
+              {jogo.map(campo => (
+                <div key={campo.id} className="field">
+                  <h2>Campo {campo.id}</h2>
+                  <ul>
+                    {campo.times.map((time, idx) => (
+                      <li key={idx} className={getTeamClass(campo, idx)}>
+                        <div>
+                          {time.jogadores.map((jogador, jogadorIndex) => (
+                            <span key={jogador.id}>
+                              <input
+                                type="text"
+                                value={jogador.nome}
+                                onChange={(e) => handleNomeEdit(jogoIndex, campo.id, idx, jogadorIndex, e.target.value)}
+                                className="jogador-input"
+                              />
+                              {jogadorIndex === 0 ? ' e ' : ''}
+                            </span>
+                          ))}
+                          <input
+                            type="number"
+                            value={time.resultado}
+                            onChange={(e) => handleResultadoChange(jogoIndex, campo.id, idx, parseInt(e.target.value))}
+                            className="resultado-input"
+                          />
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           ))}
         </div>
         {jogos.length > 0 && jogos.length < 5 && (
           <button onClick={iniciarProximoJogo} className="distribute-button">Jogo {jogos.length + 1}</button>
         )}
-        <button onClick={scrollToTop} className="scroll-to-top">Ir para o topo</button>
-        <div className="ranking-container">
-          <h2>Ranking dos Jogadores</h2>
-          <ul>
-            {jogadoresClassificados.map((jogador) => (
-              <li key={jogador.id}>
-                {jogador.nome} - Vitórias: {jogador.vitorias}, Pontos: {jogador.pontos}
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
     </div>
   );

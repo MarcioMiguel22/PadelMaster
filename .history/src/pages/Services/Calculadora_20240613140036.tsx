@@ -59,6 +59,14 @@ const separarDuplas = (jogadores: Jogador[]): Jogador[] => {
   return separados;
 };
 
+const criarNovasDuplas = (jogadores: Jogador[]): Time[] => {
+  const novasDuplas: Time[] = [];
+  for (let i = 0; i < jogadores.length; i += 2) {
+    novasDuplas.push({ jogadores: [jogadores[i], jogadores[i + 1]], resultado: 0 });
+  }
+  return novasDuplas;
+};
+
 const separarTimes = (times: Time[]): Jogador[] => {
   const jogadores: Jogador[] = [];
   times.forEach(time => {
@@ -132,49 +140,17 @@ const CalculadoraApp: React.FC = () => {
       { id: 3, times: [] },
     ];
 
-    let jogadoresCampo1Vencedores: Jogador[] = [];
-    let jogadoresCampo2Vencedores: Jogador[] = [];
-    let jogadoresCampo3Vencedores: Jogador[] = [];
-    let jogadoresCampo1Perdedores: Jogador[] = [];
-    let jogadoresCampo2Perdedores: Jogador[] = [];
-    let jogadoresCampo3Perdedores: Jogador[] = [];
+    const todosJogadores: Jogador[] = separarTimes(ultimoJogo.reduce((acc, campo) => acc.concat(campo.times), []));
+    const jogadoresSeparados = separarDuplas(todosJogadores);
 
-    ultimoJogo.forEach(campo => {
-      if (campo.times.length === 2) {
-        const [time1, time2] = campo.times;
-        const vencedores = time1.resultado > time2.resultado ? time1.jogadores : time2.jogadores;
-        const perdedores = time1.resultado > time2.resultado ? time2.jogadores : time1.jogadores;
+    const novasDuplas = criarNovasDuplas(jogadoresSeparados);
 
-        const margemVitoria = Math.abs(time1.resultado - time2.resultado);
-
-        vencedores.forEach(jogador => {
-          jogador.vitorias += 1;
-          jogador.pontos += margemVitoria;
-        });
-
-        if (campo.id === 1) {
-          jogadoresCampo1Vencedores = vencedores;
-          jogadoresCampo1Perdedores = perdedores;
-        } else if (campo.id === 2) {
-          jogadoresCampo2Vencedores = vencedores;
-          jogadoresCampo2Perdedores = perdedores;
-        } else if (campo.id === 3) {
-          jogadoresCampo3Vencedores = vencedores;
-          jogadoresCampo3Perdedores = perdedores;
-        }
-      }
-    });
-
-    const novasDuplasCampo1 = separarDuplas(jogadoresCampo1Vencedores);
-    const novasDuplasCampo2 = separarDuplas([...jogadoresCampo2Vencedores, ...jogadoresCampo1Perdedores]);
-    const novasDuplasCampo3 = separarDuplas([...jogadoresCampo3Vencedores, ...jogadoresCampo2Perdedores, ...jogadoresCampo3Perdedores]);
-
-    novosCampos[0].times.push({ jogadores: [novasDuplasCampo1[0], novasDuplasCampo1[1]], resultado: 0 });
-    novosCampos[0].times.push({ jogadores: [novasDuplasCampo1[2], novasDuplasCampo1[3]], resultado: 0 });
-    novosCampos[1].times.push({ jogadores: [novasDuplasCampo2[0], novasDuplasCampo2[1]], resultado: 0 });
-    novosCampos[1].times.push({ jogadores: [novasDuplasCampo2[2], novasDuplasCampo2[3]], resultado: 0 });
-    novosCampos[2].times.push({ jogadores: [novasDuplasCampo3[0], novasDuplasCampo3[1]], resultado: 0 });
-    novosCampos[2].times.push({ jogadores: [novasDuplasCampo3[2], novasDuplasCampo3[3]], resultado: 0 });
+    novosCampos[0].times.push(novasDuplas[0]);
+    novosCampos[0].times.push(novasDuplas[1]);
+    novosCampos[1].times.push(novasDuplas[2]);
+    novosCampos[1].times.push(novasDuplas[3]);
+    novosCampos[2].times.push(novasDuplas[4]);
+    novosCampos[2].times.push(novasDuplas[5]);
 
     setJogos([...jogos, novosCampos]);
   };

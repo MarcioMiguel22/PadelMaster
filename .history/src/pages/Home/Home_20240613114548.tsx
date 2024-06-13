@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './PadelPage.css';
-import padelImage from './Quieres-saber-cuáles-son-los-beneficios-del-pádel-y-porque-es-importante-practicarlo.jpg'; // Ensure the path is correct
+import padelImage from './Quieres-saber-cuáles-son-los-beneficios-del-pádel-y-porque-es-importante-practicarlo.jpg'; // Certifique-se de que o caminho está correto
 
 const PadelPage: React.FC = () => {
   const navigate = useNavigate();
