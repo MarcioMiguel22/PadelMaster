@@ -1,35 +1,59 @@
-<<<<<<< HEAD
+
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-=======
 # PadelMaster
 Programa de Cálculo de Jogos de Padel
->>>>>>> b75fbe422cafc9c6d10e2df13603a68639eb7c35
+
+## Projeto de Formulários
+
+Este projeto é uma aplicação web para criação e gerenciamento de formulários, desenvolvido com React, TypeScript e Vite.
+
+### Compilação da criação do projeto
+
+1. **Criar um novo projeto Vite com o React:** Execute o seguinte comando no terminal:
+    ```bash
+    npm create vite@latest nomedoprojeto 
+    ```
+
+2. **Instalar o react-router-dom:** Acesse o diretório do seu projeto recém-criado:
+    ```bash
+    cd nomedoprojeto
+    ```
+    E então instale o react-router-dom usando npm:
+    ```bash
+    npm install react-router-dom
+    ```
+
+3. **Criar um repositório no GitHub:** Vá para o GitHub e crie um novo repositório. Você pode fazer isso manualmente através da interface web do GitHub.
+
+4. **Conectar o repositório remoto ao seu projeto local:** Dentro do diretório do seu projeto, execute os seguintes comandos no terminal:
+    ```bash
+    git init
+    ```
+    ```bash
+    git branch -m main
+    ```
+    ```bash
+    git remote add origin https://github.com/MarcioMiguel22/PadelMaster
+    ```
+    ```bash
+    git add .
+    ```
+    ```bash
+    git commit -m "Adicionando arquivos iniciais do projeto"
+    ```
+    ```bash
+    git push -u origin main
+    ```
+## Inicializar o repositório Git
+ ```bash
+git init
+```
+## Criar e mudar para a branch principal 'main'
+```bash
+git checkout -b main
+```
+## Criar e mudar para a branch de desenvolvimento 'develop'
+```bash
+git checkout -b develop
+```
