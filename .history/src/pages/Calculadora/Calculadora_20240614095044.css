@@ -103,7 +103,7 @@
   margin: 5px 0;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  width:fit-content; /* Ajuste o valor conforme necessário */
+  width: 300px; /* Ajuste o valor conforme necessário */
 }
 
 
