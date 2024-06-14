@@ -57,3 +57,8 @@ git checkout -b main
 ```bash
 git checkout -b develop
 ```
+###JogadorItem: Componente para um item de jogador individual.
+###JogadoresLista: Componente para a lista de jogadores.
+###Campo: Componente para um campo de jogo individual.
+###Jogo: Componente para representar um jogo completo.
+###Ranking: Componente para o ranking dos jogadores.
