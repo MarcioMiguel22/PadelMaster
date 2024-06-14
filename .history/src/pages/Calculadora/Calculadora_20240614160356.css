@@ -143,61 +143,8 @@
   margin: 5px 0;
 }
 
-
-@media screen and (max-width: 991px) {
-  .jogadores-lista {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 10px;
-  }
-
-  .field {
-    width: 80%;
-    margin-bottom: 20px;
-  }
-
-  .campos {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .distribute-button, .scroll-to-top {
-    width: 100%;
-    font-size: 14px;
-    padding: 8px 16px;
-  }
-
-  .team div {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .team input.resultado-input {
-    margin-left: 0;
-    margin-top: 5px;
-  }
-  .ranking-container {
-    flex-flow: column;
-    margin-top: 40px;
-  }
-
-  .ranking-container h2 {
-    margin-bottom: 10px;
-  }
-
-  .ranking-container ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  .ranking-container li {
-    margin: 5px 0;
-  }
-}
 /* Media Queries para Mobile */
-@media screen and (max-width: 767px) {
+@media (max-width: 768px) {
   .jogadores-lista {
     flex-direction: column;
     align-items: center;
@@ -232,61 +179,6 @@
     margin-top: 5px;
   }
   .ranking-container {
-    flex-flow: column;
-    margin-top: 40px;
-  }
-
-  .ranking-container h2 {
-    margin-bottom: 10px;
-  }
-
-  .ranking-container ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  .ranking-container li {
-    margin: 5px 0;
-  }
-}
-
-/* Media Queries para Mobile */
-@media screen and (max-width: 479px) {
-  .jogadores-lista {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 10px;
-  }
-
-  .field {
-    width: 80%;
-    margin-bottom: 20px;
-  }
-
-  .campos {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .distribute-button, .scroll-to-top {
-    width: 100%;
-    font-size: 14px;
-    padding: 8px 16px;
-  }
-
-  .team div {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .team input.resultado-input {
-    margin-left: 0;
-    margin-top: 5px;
-  }
-  .ranking-container {
-    flex-flow: column;
     margin-top: 40px;
   }
 
