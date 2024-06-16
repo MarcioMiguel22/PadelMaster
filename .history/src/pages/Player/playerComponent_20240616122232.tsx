@@ -12,7 +12,11 @@ const PlayerComponent: React.FC = () => {
           <a href="/" className="nav-brand">
             <div className="site-name">Márcio Miguel</div>
           </a>
-
+          <nav className="navigation-menu">
+            <a href="/" className="navigation-link">Home</a>
+            <a href="/about" className="navigation-link">About</a>
+            <a href="/contact" className="navigation-link">Contact</a>
+          </nav>
           <div className="menu-button">
             <div className="nav-icon-menu"></div>
           </div>
