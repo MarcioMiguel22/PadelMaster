@@ -1,0 +1,77 @@
+.rankingContainer {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.top3Container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Ensure items wrap in smaller screens */
+}
+
+.top3Item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 10px; /* Added margin to ensure spacing between items */
+  flex-basis: calc(33.33% - 20px); /* Ensure items take equal width, minus margins */
+  box-sizing: border-box; /* Ensure padding is included in the element's width */
+}
+
+.medalha {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease-in-out;
+  object-fit: initial;
+
+}
+
+.medalha:hover {
+  transform: scale(8);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+.outrosJogadores {
+  list-style-type: none;
+  padding: 0;
+}
+
+.outrosJogadores li {
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+/* Media Queries for Smaller Screens */
+@media screen and (max-width: 767px) {
+  .top3Item {
+    flex-basis: calc(50% - 20px); /* Two items per row on smaller screens */
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .top3Item {
+    flex-basis: 100%; /* One item per row on the smallest screens */
+  }
+}

@@ -1,0 +1,23 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import styles from './Home.module.css'; // Updated import statement
+import padelImage from '../../assets/images/inicio.jpg';
+
+const PadelPage: React.FC = () => {
+  const navigate = useNavigate();
+
+  return (
+    <div className="padel-container">
+      <h1>PadelMaster</h1>
+      <div className="content">
+        <img src={padelImage} alt="Imagem de Padel" className="padel-image" />
+        <div className="button-container">
+          <button className="enter-button" onClick={() => navigate('/calculadora')}>Entrar</button>
+          <button className="enter-button" onClick={() => navigate('/player-component')}>Entrar-player</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PadelPage;

@@ -1,0 +1,36 @@
+.container {
+  background-color: lightgreen;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.distributeButton {
+  bottom: 100px; /* Ajuste a posição conforme necessário */
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  height: 70px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row; /* Altera para linha */
+}
+
+.tennisBall {
+  width: 70px;
+  height: 70px;
+  position: relative; /* Altera para relativo */
+}
+
+.label {
+  font-size: 16px;
+  color: rgb(5, 5, 5);
+  font-weight: bold;
+  margin-left: 10px; /* Espaço entre a bola e o texto */
+}
