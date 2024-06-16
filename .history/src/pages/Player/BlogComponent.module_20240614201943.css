@@ -1,0 +1,134 @@
+.navigation-bar {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.nav-brand .site-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navigation-menu {
+  display: flex;
+  gap: 15px;
+}
+
+.navigation-link {
+  color: #000;
+  text-decoration: none;
+}
+
+.menu-button .nav-icon-menu {
+  display: none; /* Display settings for mobile can be adjusted here */
+}
+
+.content-wrapper {
+  padding: 20px 0;
+}
+
+.row {
+  display: flex;
+}
+
+.w-col-3, .w-col-9 {
+  padding: 15px;
+}
+
+.w-col-3 {
+  width: 25%;
+}
+
+.w-col-9 {
+  width: 75%;
+}
+
+.white-wrapper {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.circle-profile {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.site-description {
+  margin-top: 15px;
+}
+
+.grey-rule {
+  border-top: 1px solid #ddd;
+  margin: 15px 0;
+}
+
+.small-heading {
+  font-size: 18px;
+}
+
+.feature-posts-list .post-item {
+  margin: 10px 0;
+}
+
+.social-link-group {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icon-link img {
+  display: block;
+}
+
+.built-with-webflow {
+  margin-top: 15px;
+  font-size: 12px;
+  color: #888;
+}
+
+.post-wrapper {
+  margin-bottom: 20px;
+}
+
+.blog-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #ddd; /* Placeholder for blog image */
+}
+
+.blog-title {
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+.details-wrapper {
+  display: flex;
+  gap: 5px;
+  font-size: 14px;
+  color: #888;
+}
+
+.post-summary-wrapper {
+  margin-top: 10px;
+}
+
+.read-more-link {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.button-wrapper {
+  text-align: right;
+}
+
+.button {
+  background: #007BFF;

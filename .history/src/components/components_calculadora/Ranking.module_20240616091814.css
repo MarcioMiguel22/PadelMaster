@@ -1,0 +1,60 @@
+.rankingContainer {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.top3Container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.top3Item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Center text horizontally */
+}
+
+.medalha {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px; /* Adjusted for better centering */
+  transition: transform 0.3s ease-in-out;
+  object-fit: contain; /* Ensure the image fits within the container */
+  background-color: transparent; /* Ensure the background is transparent */
+}
+
+.medalha:hover {
+  transform: scale(1.2);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+.outrosJogadores {
+  list-style-type: none;
+  padding: 0;
+}
+
+.outrosJogadores li {
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+  text-align: center; /* Center text horizontally */
+}
