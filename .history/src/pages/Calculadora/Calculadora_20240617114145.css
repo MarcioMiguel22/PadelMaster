@@ -1,0 +1,287 @@
+.calculadora-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  overflow-x: hidden; /* Adicionado para evitar overflow horizontal */
+  width: 100%; /* Garante que a calculadora-container não ultrapasse a largura da tela */
+  max-width: 100vw; /* Impede que o container ultrapasse a largura da viewport */
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%; /* Garante que a main-content não ultrapasse a largura da tela */
+  max-width: 100vw; /* Impede que o conteúdo principal ultrapasse a largura da viewport */
+}
+
+.jogadores-lista {
+  background: linear-gradient(to right, #daefcd, #a8d5ba);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.fields-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%; /* Garante que fields-container não ultrapasse a largura da tela */
+  overflow-x: hidden; /* Adicionado para evitar overflow horizontal */
+  max-width: 100vw; /* Impede que o container ultrapasse a largura da viewport */
+}
+
+.campos {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  flex-wrap: wrap; /* Adicionado para garantir que os campos se ajustem à largura da tela */
+  overflow-x: hidden; /* Adicionado para evitar overflow horizontal */
+  position: relative; /* Garante que os campos não saiam da sua área */
+}
+
+.jogadores-coluna {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.jogador-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.jogador-item label {
+  margin-right: 10px;
+}
+
+.jogador-item input {
+  padding: 5px;
+  font-size: 16px;
+}
+
+.jogador-input {
+  margin-right: 5px;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.distribute-button, .scroll-to-top {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.distribute-button:hover, .scroll-to-top:hover {
+  background-color: #45a049;
+}
+
+.jogo {
+  margin-bottom: 40px;
+}
+
+.field {
+  background: linear-gradient(to right, #c3e8ad, #a8d5ba);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  min-width: 280px; /* Adiciona largura mínima para garantir a responsividade */
+  overflow-x: hidden; /* Adicionado para evitar overflow horizontal */
+  position: relative; /* Garante que os campos não saiam da sua área */
+}
+
+.field h2 {
+  margin-top: 0;
+}
+
+.team {
+  list-style-type: none;
+  padding: 10px; /* Aumentado para dar mais espaço interno */
+  background-color: #fff;
+  margin: 5px 0;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Garante que a largura se ajuste ao conteúdo */
+  max-width: 100%; /* Impede que o container ultrapasse a largura disponível */
+  margin: 0 auto; /* Centraliza o .team dentro do .field */
+  position: relative; /* Garante que o .team não saia do .field */
+  overflow: hidden; /* Evita overflow de conteúdos internos */
+}
+
+.team.vencedor {
+  background-color: #d4edda; /* Verde claro */
+}
+
+.team.perdedor {
+  background-color: #f8d7da; /* Vermelho claro */
+}
+
+.team div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Adicionado para distribuir o espaço entre os elementos */
+  width: 100%;
+  flex-wrap: wrap; /* Permite que os conteúdos se ajustem em linhas se necessário */
+}
+
+.team input.jogador-input {
+  flex: 1; /* Permite que o input se ajuste ao espaço disponível */
+  min-width: 25px; /* Define uma largura mínima */
+  margin-right: 10px; /* Espaçamento entre os inputs */
+}
+.team input.resultado-input {
+  flex: 0 0 50px; /* Define uma largura fixa para o input */
+  margin-left: 10px;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.ranking-container {
+  margin-top: 40px;
+}
+
+.ranking-container h2 {
+  margin-bottom: 10px;
+}
+
+.ranking-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.ranking-container li {
+  margin: 5px 0;
+}
+
+/* Media Queries para Mobile */
+@media screen and (max-width: 767px) {
+  .jogadores-lista {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .field {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .campos {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .distribute-button, .scroll-to-top {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .team div {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .team input.resultado-input {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+
+  .ranking-container {
+    flex-flow: column;
+    margin-top: 40px;
+  }
+
+  .ranking-container h2 {
+    margin-bottom: 10px;
+  }
+
+  .ranking-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .ranking-container li {
+    margin: 5px 0;
+  }
+}
+
+/* Media Queries para Mobile */
+@media screen and (max-width: 479px) {
+  .jogadores-lista {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .field {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .campos {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .distribute-button, .scroll-to-top {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .team div {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .team input.resultado-input {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+
+  .ranking-container {
+    flex-flow: column;
+    margin-top: 40px;
+  }
+
+  .ranking-container h2 {
+    margin-bottom: 10px;
+  }
+
+  .ranking-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .ranking-container li {
+    margin: 5px 0;
+  }
+}
