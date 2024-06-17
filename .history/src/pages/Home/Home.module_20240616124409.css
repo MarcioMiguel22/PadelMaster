@@ -28,23 +28,27 @@ h1 {
   height: auto;
   border-radius: 10px;
   margin-bottom: 20px;
-  position: relative; /* Add this */
 }
 
 .buttonContainer {
-
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .enterButton {
   background-image: url('../../assets/images/tennis-ball.png'); /* Ensure the path is correct */
   background-size: cover;
+
+
   width: 60px;
   height: 60px;
   border: none;
   border-radius: 50%;
   cursor: pointer;
+
 }
 
 .enterButton:hover {
-  transform: scale(2.0);
+  transform: scale(2.1);
 }

@@ -32,7 +32,10 @@ h1 {
 }
 
 .buttonContainer {
-
+  position: absolute; /* Add this */
+  bottom: 0; /* Add this */
+  left: 29; /* Add this */
+  margin-top: auto;
 }
 
 .enterButton {
