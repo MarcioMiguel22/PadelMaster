@@ -13,7 +13,7 @@ const PadelPage: React.FC = () => {
         <img src={padelImage} alt="Imagem de Padel" className={styles.padelImage} />
         <div className={styles.buttonContainer}>
           <button className={styles.enterButton} onClick={() => navigate('/calculadora')}>Entrar</button>
-
+          <button className={styles.enterButton} onClick={() => navigate('/player-component')}>Eu</button>
         </div>
       </div>
     </div>

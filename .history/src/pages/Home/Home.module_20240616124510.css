@@ -22,16 +22,25 @@ h1 {
   align-items: center;
 }
 
-.padelImage {
+.padelImageContainer {
+  position: relative;
   max-width: 50%;
   width: 1000px; /* Adjust this if necessary */
-  height: auto;
   border-radius: 10px;
   margin-bottom: 20px;
-  position: relative; /* Add this */
 }
 
+.padelImage {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
 
+.buttonContainer {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
 
 .enterButton {
   background-image: url('../../assets/images/tennis-ball.png'); /* Ensure the path is correct */

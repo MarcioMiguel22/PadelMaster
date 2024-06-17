@@ -31,7 +31,12 @@ h1 {
   position: relative; /* Add this */
 }
 
-
+.buttonContainer {
+  position: absolute; /* Add this */
+  bottom: 0; /* Add this */
+  right: 0; /* Add this */
+  margin: 10px; /* Optional: Add some margin */
+}
 
 .enterButton {
   background-image: url('../../assets/images/tennis-ball.png'); /* Ensure the path is correct */
