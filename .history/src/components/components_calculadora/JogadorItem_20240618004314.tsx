@@ -7,7 +7,7 @@ interface JogadorItemProps {
   focusNextInput: () => void;
 }
 
-export interface InputRef {
+interface InputRef {
   focus: () => void;
 }
 

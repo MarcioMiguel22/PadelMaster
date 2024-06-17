@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import './Calculadora.css';
 import JogadoresLista from '../../components/components_calculadora/JogadoresLista';
 import Jogo from '../../components/components_calculadora/Jogo';
@@ -43,9 +43,7 @@ const CalculadoraApp: React.FC = () => {
   const [jogadores, setJogadores] = useState<Jogador[]>(jogadoresIniciais);
   const [jogos, setJogos] = useState<CampoType[][]>([]);
   const [jogosFinalizados, setJogosFinalizados] = useState(false);
-  const [showDistributeButton, setShowDistributeButton] = useState(true);
-  const jogoRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [currentJogoIndex, setCurrentJogoIndex] = useState(jogos.length - 1);
+  const [distribuicoes, setDistribuicoes] = useState(0);
 
   const handleNomeChange = (id: number, novoNome: string) => {
     setJogadores(jogadores.map(jogador =>
@@ -108,13 +106,12 @@ const CalculadoraApp: React.FC = () => {
     });
 
     setJogadores(jogadoresAtualizados);
+    setDistribuicoes(distribuicoes + 1);
   };
 
   const iniciarProximoJogoHandler = () => {
     iniciarProximoJogo(jogos, setJogos);
-    if (jogos.length === 1) {
-      setShowDistributeButton(false);  // Esconder o botão "Distribuir Jogadores" após iniciar o jogo 2
-    }
+    setDistribuicoes(5);  // Para esconder o botão "Distribuir Jogadores" após iniciar o jogo 2
   };
 
   const finalizarJogos = () => {
@@ -176,35 +173,24 @@ const CalculadoraApp: React.FC = () => {
     return b.vitorias - a.vitorias;
   });
 
-  const scrollToNextJogo = () => {
-    if (currentJogoIndex >= 0 && jogoRefs.current[currentJogoIndex]) {
-      jogoRefs.current[currentJogoIndex]?.scrollIntoView({ behavior: 'smooth' });
-      setCurrentJogoIndex(currentJogoIndex - 1);
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      setCurrentJogoIndex(jogos.length - 1);
-    }
-  };
-
   return (
     <div className="calculadora-container">
       <h1>Jogos de Padel</h1>
       <div className="main-content">
         <JogadoresLista jogadores={jogadores} handleNomeChange={handleNomeChange} />
         <div className="fields-container">
-          {showDistributeButton && (
+          {distribuicoes < 5 && jogos.length < 2 && (
             <DistributeButton onClick={distribuirJogadores} />
           )}
           {jogos.map((jogo, jogoIndex) => (
-            <div key={jogoIndex} ref={el => (jogoRefs.current[jogoIndex] = el)}>
-              <Jogo
-                jogo={jogo}
-                jogoIndex={jogoIndex}
-                handleResultadoChange={handleResultadoChange}
-                handleNomeEdit={handleNomeEdit}
-                getTeamClass={getTeamClass}
-              />
-            </div>
+            <Jogo
+              key={jogoIndex}
+              jogo={jogo}
+              jogoIndex={jogoIndex}
+              handleResultadoChange={handleResultadoChange}
+              handleNomeEdit={handleNomeEdit}
+              getTeamClass={getTeamClass}
+            />
           ))}
         </div>
         {jogos.length > 0 && jogos.length < 5 && (
@@ -213,7 +199,7 @@ const CalculadoraApp: React.FC = () => {
         {jogos.length > 0 && jogos.length === 5 && !jogosFinalizados && (
           <button onClick={finalizarJogos} className="finalizar-button">Finalizar Jogos</button>
         )}
-        <ScrollToTopButton onClick={scrollToNextJogo} />
+        <ScrollToTopButton />
         <Ranking jogadoresClassificados={jogadoresClassificados} />
       </div>
     </div>

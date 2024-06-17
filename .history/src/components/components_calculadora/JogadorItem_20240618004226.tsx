@@ -7,11 +7,11 @@ interface JogadorItemProps {
   focusNextInput: () => void;
 }
 
-export interface InputRef {
+interface InputRef {
   focus: () => void;
 }
 
-const JogadorItem = forwardRef<InputRef, JogadorItemProps>(({ jogador, handleNomeChange, focusNextInput }, ref) => {
+const JogadorItem: React.ForwardRefRenderFunction<InputRef, JogadorItemProps> = ({ jogador, handleNomeChange, focusNextInput }, ref) => {
   const [nome, setNome] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -55,8 +55,6 @@ const JogadorItem = forwardRef<InputRef, JogadorItemProps>(({ jogador, handleNom
       />
     </div>
   );
-});
+};
 
-JogadorItem.displayName = "JogadorItem";
-
-export default JogadorItem;
+export default forwardRef(JogadorItem);

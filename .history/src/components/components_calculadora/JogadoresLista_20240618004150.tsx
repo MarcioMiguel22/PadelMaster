@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import JogadorItem, { InputRef } from './JogadorItem'; // Importando o JogadorItem e InputRef
+import JogadorItem from './JogadorItem';
 import { Jogador } from '../../utils/types/types'; // Importando o tipo Jogador
 
 interface JogadoresListaProps {
@@ -8,7 +8,7 @@ interface JogadoresListaProps {
 }
 
 const JogadoresLista: React.FC<JogadoresListaProps> = ({ jogadores, handleNomeChange }) => {
-  const inputRefs = useRef<(InputRef | null)[]>([]);
+  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
   const focusNextInput = (index: number) => {
     if (index < inputRefs.current.length - 1) {
