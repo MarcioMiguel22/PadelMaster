@@ -1,0 +1,92 @@
+.calculadora-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  overflow-x: hidden; /* Adiciona esta linha para evitar overflow horizontal */
+}
+
+.main-content {
+  gap: 20px;
+  width: 100%; /* Garante que a main-content não ultrapasse a largura da tela */
+}
+
+.jogadores-lista {
+  background: linear-gradient(to right, #daefcd, #a8d5ba);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  overflow-x: hidden; /* Adiciona esta linha para evitar overflow horizontal */
+}
+
+.fields-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%; /* Garante que fields-container não ultrapasse a largura da tela */
+  overflow-x: hidden; /* Adiciona esta linha para evitar overflow horizontal */
+}
+
+/* Media Queries para Mobile */
+@media screen and (max-width: 767px) {
+  .jogadores-lista {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .field {
+    width: 80%; /* Ajusta a largura para garantir que cabe na tela */
+    margin-bottom: 20px;
+  }
+
+  .campos {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .distribute-button, .scroll-to-top {
+    width: 100%; /* Ajusta a largura para garantir que cabe na tela */
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .team div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .team input.resultado-input {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+
+  .ranking-container {
+    flex-flow: column;
+    margin-top: 40px;
+  }
+
+  .ranking-container h2 {
+    margin-bottom: 10px;
+  }
+
+  .ranking-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .ranking-container li {
+    margin: 5px 0;
+  }
+}

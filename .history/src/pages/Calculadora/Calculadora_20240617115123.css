@@ -29,8 +29,6 @@
 .jogadores-lista {
   background: linear-gradient(to right, #daefcd, #a8d5ba);
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
   width: 90%;
@@ -38,8 +36,7 @@
   margin: 0 auto;
   padding: 50px;
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  overflow-x: hidden; /* Adicionado para evitar overflow horizontal */
+  box-shadow: var(--box-shadow);
 }
 
 .fields-container {
