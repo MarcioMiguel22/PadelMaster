@@ -1,6 +1,4 @@
 // types.ts
-import jsPDF from 'jspdf';
-
 export interface Jogador {
   id: number;
   nome: string;
@@ -33,7 +31,7 @@ interface CellHookData {
   cell: {
     raw: string | number | boolean;
     styles: AutoTableStyles;
-    [key: string]: string | number | boolean | AutoTableStyles;
+    [key: string]: any;
   };
   column: {
     index: number;
@@ -72,7 +70,7 @@ interface AutoTableOptions {
   didParseCell?: (data: CellHookData) => void;
   willDrawCell?: (data: CellHookData) => void;
   didDrawCell?: (data: CellHookData) => void;
-  didDrawPage?: (data: { pageNumber: number; totalPages: number; table: jsPDF }) => void;
+  didDrawPage?: (data: { pageNumber: number; totalPages: number; table: any }) => void;
 }
 
 declare module 'jspdf' {
