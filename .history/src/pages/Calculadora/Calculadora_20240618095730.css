@@ -1,4 +1,4 @@
-
+/* src/pages/Calculadora/Calculadora.css */
 :root {
   --main-bg-color: #4CAF50;
   --main-hover-color: #45a049;
@@ -173,7 +173,6 @@ body {
 
 .ranking-container {
   margin-top: 40px;
-  text-align: center; /* Centraliza o conteúdo dentro do contêiner */
 }
 
 .ranking-container h2 {
@@ -190,33 +189,6 @@ body {
 .ranking-container li {
   margin: 5px 0;
   cursor: default; /* Garantir que o cursor seja padrão para itens de lista */
-}
-
-.export-button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.export-button {
-  background-color: #4CAF50; /* Verde */
-  border: none;
-  color: white;
-  padding: 10px 20px; /* Reduzido o padding para tornar o botão menor */
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px; /* Reduzido o tamanho da fonte */
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 12px; /* Cantos arredondados */
-  transition-duration: 0.4s;
-}
-
-.export-button:hover {
-  background-color: white;
-  color: black;
-  border: 2px solid #4CAF50;
 }
 
 /* Media Queries for Mobile */

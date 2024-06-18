@@ -29,7 +29,7 @@ const ExportButton: React.FC<ExportButtonProps> = ({ jogadores, jogos }) => {
       head: [['Posição', 'Nome', 'Vitórias', 'Pontos']],
       body: rankingData,
       startY: 30,
-      headStyles: { fillColor: '#4CAF50' } // Definir a cor do cabeçalho da tabela como string
+      headStyles: { fillColor: [76, 175, 80] } // Definir a cor do cabeçalho da tabela
     });
 
     // Adicionar Resultados dos Jogos
@@ -50,7 +50,7 @@ const ExportButton: React.FC<ExportButtonProps> = ({ jogadores, jogos }) => {
           head: [['Equipa', 'Jogadores', 'Resultado']], // Translate header to "Equipa"
           body: campoData,
           startY: startY + 10,
-          headStyles: { fillColor: '#4CAF50' } // Definir a cor do cabeçalho da tabela como string
+          headStyles: { fillColor: [76, 175, 80] } // Definir a cor do cabeçalho da tabela
         });
         startY += 10 + (campo.times.length * 10); // Update startY based on content
       });

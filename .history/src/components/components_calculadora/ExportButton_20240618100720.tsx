@@ -13,9 +13,6 @@ const ExportButton: React.FC<ExportButtonProps> = ({ jogadores, jogos }) => {
   const exportPDF = () => {
     const doc = new jsPDF();
 
-    // Definir a cor do texto para verde
-    doc.setTextColor(76, 175, 80);
-
     // Adicionar Ranking
     doc.setFontSize(18);
     doc.text('Ranking dos Jogadores', 20, 20);
@@ -29,7 +26,6 @@ const ExportButton: React.FC<ExportButtonProps> = ({ jogadores, jogos }) => {
       head: [['Posição', 'Nome', 'Vitórias', 'Pontos']],
       body: rankingData,
       startY: 30,
-      headStyles: { fillColor: '#4CAF50' } // Definir a cor do cabeçalho da tabela como string
     });
 
     // Adicionar Resultados dos Jogos
@@ -50,7 +46,6 @@ const ExportButton: React.FC<ExportButtonProps> = ({ jogadores, jogos }) => {
           head: [['Equipa', 'Jogadores', 'Resultado']], // Translate header to "Equipa"
           body: campoData,
           startY: startY + 10,
-          headStyles: { fillColor: '#4CAF50' } // Definir a cor do cabeçalho da tabela como string
         });
         startY += 10 + (campo.times.length * 10); // Update startY based on content
       });
@@ -63,11 +58,9 @@ const ExportButton: React.FC<ExportButtonProps> = ({ jogadores, jogos }) => {
   };
 
   return (
-    <div className={styles['export-button-container']}>
-      <button onClick={exportPDF} className={styles.exportButton}>
-        Exportar Resultados em PDF
-      </button>
-    </div>
+    <button onClick={exportPDF} className={styles.exportButton}>
+      Exportar Resultados em PDF
+    </button>
   );
 };
 

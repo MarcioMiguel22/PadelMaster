@@ -1,4 +1,3 @@
-//src/pages/Calculadora/Calculadora.tsx
 import React, { useState } from 'react';
 import './Calculadora.css';
 import JogadoresLista from '../../components/components_calculadora/JogadoresLista';
@@ -184,7 +183,7 @@ const CalculadoraApp: React.FC = () => {
       <h1>Jogos de Padel</h1>
       <div className="main-content">
         <JogadoresLista jogadores={jogadores} handleNomeChange={handleNomeChange} />
-
+        <ExportButton jogadores={jogadoresClassificados} jogos={jogos} />
         <div className="fields-container">
           {showDistributeButton && <DistributeButton onClick={distribuirJogadores} />}
           {jogos.map((jogo, jogoIndex) => (
@@ -204,7 +203,6 @@ const CalculadoraApp: React.FC = () => {
         </div>
         <div id="ranking-resultados">
           <Ranking jogadoresClassificados={jogadoresClassificados} />
-          <ExportButton jogadores={jogadoresClassificados} jogos={jogos} />
         </div>
         <ScrollToTopButton onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
       </div>

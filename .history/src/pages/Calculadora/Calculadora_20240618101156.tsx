@@ -203,8 +203,8 @@ const CalculadoraApp: React.FC = () => {
           )}
         </div>
         <div id="ranking-resultados">
-          <Ranking jogadoresClassificados={jogadoresClassificados} />
           <ExportButton jogadores={jogadoresClassificados} jogos={jogos} />
+          <Ranking jogadoresClassificados={jogadoresClassificados} />
         </div>
         <ScrollToTopButton onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
       </div>
