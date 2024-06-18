@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Campo as CampoType, Time, Jogador } from '../../utils/types/types';
 
 interface CampoProps {
@@ -11,8 +11,11 @@ interface CampoProps {
 }
 
 const Campo: React.FC<CampoProps> = ({ campo, jogoIndex, handleResultadoChange, handleNomeEdit, getTeamClass, trocarJogadores }) => {
+  const [showTrocarButton, setShowTrocarButton] = useState(true);
+
   const handleTrocarJogadores = () => {
     trocarJogadores(campo.id, campo.times.flatMap(time => time.jogadores));
+    setShowTrocarButton(false); // Esconder o botão após ser clicado
   };
 
   return (
@@ -43,7 +46,7 @@ const Campo: React.FC<CampoProps> = ({ campo, jogoIndex, handleResultadoChange, 
           </li>
         ))}
       </ul>
-      {jogoIndex > 0 && (
+      {jogoIndex > 0 && showTrocarButton && (
         <button onClick={handleTrocarJogadores} className="trocar-jogadores-button">
           Trocar Jogadores
         </button>

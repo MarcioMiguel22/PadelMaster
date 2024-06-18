@@ -7,7 +7,7 @@ interface CampoProps {
   handleResultadoChange: (jogoIndex: number, campoId: number, timeIndex: number, novoResultado: number) => void;
   handleNomeEdit: (jogoIndex: number, campoId: number, timeIndex: number, jogadorIndex: number, novoNome: string) => void;
   getTeamClass: (campo: CampoType, timeIndex: number) => string;
-  trocarJogadores: (campoId: number, jogadores: Jogador[]) => void; // Adicionando a prop trocarJogadores
+  trocarJogadores: (campoId: number, jogadores: Jogador[]) => void;
 }
 
 const Campo: React.FC<CampoProps> = ({ campo, jogoIndex, handleResultadoChange, handleNomeEdit, getTeamClass, trocarJogadores }) => {
