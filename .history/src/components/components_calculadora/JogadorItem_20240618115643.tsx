@@ -1,3 +1,4 @@
+//
 
 import React, { useState, useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
 import { Jogador } from '../../utils/types/types'; // Importando o tipo Jogador

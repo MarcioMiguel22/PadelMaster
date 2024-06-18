@@ -1,6 +1,10 @@
 /* src/components/components_calculadora/ExportButton.module.css */
 
-
+.export-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 
 .exportButton {
   background: linear-gradient(to right, #daefcd, #a8d5ba);

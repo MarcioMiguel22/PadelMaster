@@ -183,7 +183,7 @@ const CalculadoraApp: React.FC = () => {
       <h1>Jogos de Padel</h1>
       <div className="main-content">
         <JogadoresLista jogadores={jogadores} handleNomeChange={handleNomeChange} />
-
+        <ResetButton /> {/* Adicionar o botão de reset aqui */}
         <div className="fields-container">
           {showDistributeButton && <DistributeButton onClick={distribuirJogadores} />}
           {jogos.map((jogo, jogoIndex) => (
@@ -204,9 +204,7 @@ const CalculadoraApp: React.FC = () => {
         <div id="ranking-resultados">
           <Ranking jogadoresClassificados={jogadoresClassificados} />
           <div className="export-button-container">
-
             <ExportButton jogadores={jogadoresClassificados} jogos={jogos} />
-            <ResetButton /> {/* Adicionar o botão de reset aqui */}
           </div>
         </div>
         <ScrollToTopButton onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />

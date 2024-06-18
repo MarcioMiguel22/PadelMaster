@@ -183,7 +183,7 @@ const CalculadoraApp: React.FC = () => {
       <h1>Jogos de Padel</h1>
       <div className="main-content">
         <JogadoresLista jogadores={jogadores} handleNomeChange={handleNomeChange} />
-
+        <ResetButton /> {/* Adicionar o botão de reset aqui */}
         <div className="fields-container">
           {showDistributeButton && <DistributeButton onClick={distribuirJogadores} />}
           {jogos.map((jogo, jogoIndex) => (

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import JogadorItem, { InputRef } from './JogadorItem';
+import { JogadorItem, InputRef } from './JogadorItem';
 import { Jogador } from '../../utils/types/types';
 
 interface JogadoresListaProps {

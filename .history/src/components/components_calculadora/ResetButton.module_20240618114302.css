@@ -1,8 +1,4 @@
-/* src/components/components_calculadora/ExportButton.module.css */
-
-
-
-.exportButton {
+.resetButton {
   background: linear-gradient(to right, #daefcd, #a8d5ba);
   color: rgb(38, 39, 37);
   padding: 10px 20px;
@@ -14,7 +10,7 @@
   transition-duration: 0.4s;
 }
 
-.exportButton:hover {
+.resetButton:hover {
   background-color: white;
   color: black;
   border: 2px solid #4CAF50;
