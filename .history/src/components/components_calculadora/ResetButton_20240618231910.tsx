@@ -1,15 +1,11 @@
 import React from 'react';
 import styles from './ResetButton.module.css';
 
-interface ResetButtonProps {
-  onReset: () => void;
-}
-
-const ResetButton: React.FC<ResetButtonProps> = ({ onReset }) => {
+const ResetButton: React.FC = () => {
   const handleReset = () => {
     localStorage.clear();
     window.scrollTo(0, 0); // Adiciona a rolagem para o topo da página
-    onReset();
+
   };
 
   return (
