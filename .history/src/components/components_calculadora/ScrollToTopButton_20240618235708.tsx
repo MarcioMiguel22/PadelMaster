@@ -9,7 +9,7 @@ interface ScrollToTopButtonProps {
 const ScrollToTopButton: React.FC<ScrollToTopButtonProps> = ({ refs }) => {
   const [animation, setAnimation] = useState<string>('');
 
-  const handleScroll = () => {
+  const handleScroll = async () => {
     if (window.scrollY > 0) {
       setAnimation(styles.bounce);
       setTimeout(() => {
@@ -18,14 +18,15 @@ const ScrollToTopButton: React.FC<ScrollToTopButtonProps> = ({ refs }) => {
       }, 500);
     } else {
       setAnimation(styles.disappear);
-      setTimeout(() => {
-        refs.forEach((ref) => {
+      setTimeout(async () => {
+        for (const ref of refs) {
           if (ref && 'current' in ref) {
             ref.current?.scrollIntoView({ behavior: 'smooth' });
           } else if (ref) {
             (ref as HTMLDivElement).scrollIntoView({ behavior: 'smooth' });
           }
-        });
+          await new Promise(resolve => setTimeout(resolve, 1000)); // Pausa de 1 segundo
+        }
         setAnimation('');
       }, 500);
     }
