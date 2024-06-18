@@ -8,13 +8,12 @@ interface CampoProps {
   handleResultadoChange: (jogoIndex: number, campoId: number, timeIndex: number, novoResultado: number) => void;
   handleNomeEdit: (jogoIndex: number, campoId: number, timeIndex: number, jogadorIndex: number, novoNome: string) => void;
   getTeamClass: (campo: CampoType, timeIndex: number) => string;
-  trocarJogadores: (campoId: number, jogadoresAtuais: Jogador[]) => void; // Atualizado para aceitar dois argumentos
+  trocarJogadores: (campoId: number) => void; // Atualizado para aceitar apenas campoId
 }
 
 const Campo: React.FC<CampoProps> = ({ campo, jogoIndex, handleResultadoChange, handleNomeEdit, getTeamClass, trocarJogadores }) => {
   const handleTrocarJogadores = () => {
-    const jogadoresAtuais = campo.times.flatMap(time => time.jogadores);
-    trocarJogadores(campo.id, jogadoresAtuais);
+    trocarJogadores(campo.id);
   };
 
   return (
