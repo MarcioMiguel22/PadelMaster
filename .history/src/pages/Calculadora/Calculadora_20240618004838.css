@@ -44,7 +44,6 @@ body {
   border-radius: 10px;
   box-shadow: var(--box-shadow);
   overflow-x: hidden; /* Adicionado para evitar overflow horizontal */
-  cursor: default; /* Garantir que o cursor seja padrão para a lista de jogadores */
 }
 
 .fields-container {
@@ -54,7 +53,6 @@ body {
   margin-top: 20px;
   width: 100%;
   max-width: 100vw;
-  cursor: default; /* Garantir que o cursor seja padrão para os campos */
 }
 
 .campos {
@@ -64,7 +62,6 @@ body {
   width: 100%;
   overflow-x: hidden;
   gap: 20px; /* Added gap between fields */
-  cursor: default; /* Garantir que o cursor seja padrão para os campos */
 }
 
 .jogadores-coluna {
@@ -72,14 +69,12 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  cursor: default; /* Garantir que o cursor seja padrão para as colunas de jogadores */
 }
 
 .jogador-item {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  cursor: default; /* Garantir que o cursor seja padrão para os itens de jogadores */
 }
 
 .jogador-item label {
@@ -123,7 +118,6 @@ body {
   width: 30%;
   min-width: 280px;
   margin: 10px; /* Added margin for extra spacing */
-  cursor: default; /* Garantir que o cursor seja padrão para os campos */
 }
 
 .field h2 {

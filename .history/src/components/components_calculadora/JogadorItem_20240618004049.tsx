@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Jogador } from '../../utils/types/types'; // Importando o tipo Jogador
 
 interface JogadorItemProps {
@@ -7,19 +7,9 @@ interface JogadorItemProps {
   focusNextInput: () => void;
 }
 
-export interface InputRef {
-  focus: () => void;
-}
-
-const JogadorItem = forwardRef<InputRef, JogadorItemProps>(({ jogador, handleNomeChange, focusNextInput }, ref) => {
+const JogadorItem: React.FC<JogadorItemProps> = ({ jogador, handleNomeChange, focusNextInput }) => {
   const [nome, setNome] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
-
-  useImperativeHandle(ref, () => ({
-    focus: () => {
-      inputRef.current?.focus();
-    }
-  }));
 
   useEffect(() => {
     // Set the initial value for the input
@@ -55,8 +45,6 @@ const JogadorItem = forwardRef<InputRef, JogadorItemProps>(({ jogador, handleNom
       />
     </div>
   );
-});
-
-JogadorItem.displayName = "JogadorItem";
+};
 
 export default JogadorItem;
