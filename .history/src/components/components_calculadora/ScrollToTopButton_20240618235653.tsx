@@ -9,26 +9,20 @@ interface ScrollToTopButtonProps {
 const ScrollToTopButton: React.FC<ScrollToTopButtonProps> = ({ refs }) => {
   const [animation, setAnimation] = useState<string>('');
 
-  const handleScroll = () => {
-    if (window.scrollY > 0) {
-      setAnimation(styles.bounce);
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        setAnimation('');
-      }, 500);
-    } else {
-      setAnimation(styles.disappear);
-      setTimeout(() => {
-        refs.forEach((ref) => {
-          if (ref && 'current' in ref) {
-            ref.current?.scrollIntoView({ behavior: 'smooth' });
-          } else if (ref) {
-            (ref as HTMLDivElement).scrollIntoView({ behavior: 'smooth' });
-          }
-        });
-        setAnimation('');
-      }, 500);
+  const handleScroll = async () => {
+    setAnimation(styles.bounce);
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    for (const ref of refs) {
+      if (ref && 'current' in ref) {
+        ref.current?.scrollIntoView({ behavior: 'smooth' });
+      } else if (ref) {
+        (ref as HTMLDivElement).scrollIntoView({ behavior: 'smooth' });
+      }
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Pausa de 1 segundo entre as rolagens
     }
+
+    setAnimation('');
   };
 
   return (

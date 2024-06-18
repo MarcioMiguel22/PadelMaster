@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import "./Calculadora.css";
 import JogadoresLista from "../../components/components_calculadora/JogadoresLista";
 import Jogo from "../../components/components_calculadora/Jogo";
@@ -81,10 +81,6 @@ const CalculadoraApp: React.FC = () => {
     []
   );
 
-  const topRef = useRef<HTMLDivElement>(null);
-  const resultsRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const rankingRef = useRef<HTMLDivElement>(null);
-
   const handleNomeChange = (id: number, novoNome: string) => {
     setJogadores(
       jogadores.map((jogador) =>
@@ -125,28 +121,6 @@ const CalculadoraApp: React.FC = () => {
     const novosJogos = [novosCampos];
     setJogos(novosJogos);
     setJogadores(atualizarRanking(jogadores, novosJogos));
-  };
-
-  const trocarJogadores = (campoId: number) => {
-    setJogos((prevJogos) => {
-      const novosJogos = [...prevJogos];
-      const ultimoJogo = novosJogos[novosJogos.length - 1];
-      const campo = ultimoJogo.find((c) => c.id === campoId);
-      if (!campo) return novosJogos;
-
-      const [time1, time2] = campo.times;
-      const jogadoresCampo = [...time1.jogadores, ...time2.jogadores];
-
-      // Embaralhar jogadores que chegaram ao campo
-      const jogadoresEmbaralhados = embaralharArray(jogadoresCampo);
-
-      campo.times = [
-        { jogadores: jogadoresEmbaralhados.slice(0, 2), resultado: 0 },
-        { jogadores: jogadoresEmbaralhados.slice(2, 4), resultado: 0 },
-      ];
-
-      return novosJogos;
-    });
   };
 
   const iniciarProximoJogoHandler = () => {
@@ -193,19 +167,16 @@ const CalculadoraApp: React.FC = () => {
           ? time2Campo3.jogadores
           : time1Campo3.jogadores;
 
-      // Campo 1: vencedores do campo 1 e vencedores do campo 2
       novosCampos[0].times.push(
         { jogadores: [vencedoresCampo1[0], vencedoresCampo2[0]], resultado: 0 },
         { jogadores: [vencedoresCampo1[1], vencedoresCampo2[1]], resultado: 0 }
       );
 
-      // Campo 2: perdedores do campo 1 e vencedores do campo 3
       novosCampos[1].times.push(
         { jogadores: [perdedoresCampo1[0], vencedoresCampo3[0]], resultado: 0 },
         { jogadores: [perdedoresCampo1[1], vencedoresCampo3[1]], resultado: 0 }
       );
 
-      // Campo 3: perdedores do campo 2 e perdedores do campo 3
       novosCampos[2].times.push(
         { jogadores: [perdedoresCampo2[0], perdedoresCampo3[0]], resultado: 0 },
         { jogadores: [perdedoresCampo2[1], perdedoresCampo3[1]], resultado: 0 }
@@ -262,7 +233,7 @@ const CalculadoraApp: React.FC = () => {
     );
 
   return (
-    <div className="calculadora-container" ref={topRef}>
+    <div className="calculadora-container">
       <h1>Jogos de Padel</h1>
       <div className="main-content">
         <JogadoresLista
@@ -274,20 +245,15 @@ const CalculadoraApp: React.FC = () => {
             <DistributeButton onClick={distribuirJogadores} />
           )}
           {jogos.map((jogo, jogoIndex) => (
-            <div
-              ref={(el) => (resultsRefs.current[jogoIndex] = el)}
+            <Jogo
               key={jogoIndex}
-            >
-              <Jogo
-                jogo={jogo}
-                jogoIndex={jogoIndex}
-                handleResultadoChange={handleResultadoChange}
-                getTeamClass={getTeamClass}
-                selecionarJogador={selecionarJogador}
-                jogadoresSelecionados={jogadoresSelecionados}
-                trocarJogadores={trocarJogadores}
-              />
-            </div>
+              jogo={jogo}
+              jogoIndex={jogoIndex}
+              handleResultadoChange={handleResultadoChange}
+              getTeamClass={getTeamClass}
+              selecionarJogador={selecionarJogador}
+              jogadoresSelecionados={jogadoresSelecionados}
+            />
           ))}
           {jogos.length > 0 && jogos.length < 5 && (
             <button
@@ -298,7 +264,7 @@ const CalculadoraApp: React.FC = () => {
             </button>
           )}
         </div>
-        <div id="ranking-resultados" ref={rankingRef}>
+        <div id="ranking-resultados">
           <div className="export-button-container">
             {todosResultadosInseridos && (
               <>
@@ -313,7 +279,7 @@ const CalculadoraApp: React.FC = () => {
           <Ranking jogadoresClassificados={jogadoresClassificados} />
         </div>
         <ScrollToTopButton
-          refs={[topRef, ...resultsRefs.current, rankingRef]}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         />
       </div>
     </div>

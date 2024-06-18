@@ -8,7 +8,6 @@ interface ResetButtonProps {
 const ResetButton: React.FC<ResetButtonProps> = ({ onReset }) => {
   const handleReset = () => {
     localStorage.clear();
-    window.scrollTo(0, 0); // Adiciona a rolagem para o topo da página
     onReset();
   };
 

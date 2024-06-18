@@ -1,43 +1,35 @@
 import React from 'react';
-import { Campo as CampoType, Jogador } from '../../utils/types/types';
-import TrocarJogadoresButton from './TrocarJogadoresButton';
+import { Campo as CampoType, Time, Jogador } from '../../utils/types/types';
 
 interface CampoProps {
   campo: CampoType;
   jogoIndex: number;
   handleResultadoChange: (jogoIndex: number, campoId: number, timeIndex: number, novoResultado: number) => void;
   getTeamClass: (campo: CampoType, timeIndex: number) => string;
-  trocarJogadores: (campoId: number) => void;
   selecionarJogador: (jogador: Jogador) => void;
   jogadoresSelecionados: Jogador[];
 }
 
-const Campo: React.FC<CampoProps> = ({
-  campo,
-  jogoIndex,
-  handleResultadoChange,
-  getTeamClass,
-  trocarJogadores,
-  selecionarJogador,
-  jogadoresSelecionados
-}) => {
+const Campo: React.FC<CampoProps> = ({ campo, jogoIndex, handleResultadoChange, getTeamClass, selecionarJogador, jogadoresSelecionados }) => {
+  const isJogadorSelecionado = (jogador: Jogador) => jogadoresSelecionados.some(j => j.id === jogador.id);
+
   return (
     <div className="field">
       <h2>Campo {campo.id}</h2>
       <ul>
-        {campo.times.map((time, idx) => (
+        {campo.times.map((time: Time, idx: number) => (
           <li key={idx} className={getTeamClass(campo, idx)}>
             <div>
-              {time.jogadores.map(jogador => (
-                <span
-                  key={jogador.id}
-                  onClick={() => selecionarJogador(jogador)}
-                  style={{
-                    backgroundColor: jogadoresSelecionados.includes(jogador) ? 'yellow' : 'transparent',
-                    cursor: 'pointer'
-                  }}
-                >
-                  {jogador.nome}
+              {time.jogadores.map((jogador: Jogador, jogadorIndex: number) => (
+                <span key={jogador.id}>
+                  <input
+                    type="text"
+                    value={jogador.nome}
+                    readOnly
+                    className={`jogador-input ${isJogadorSelecionado(jogador) ? 'selecionado' : ''}`}
+                    onClick={() => selecionarJogador(jogador)} // Seleciona o jogador ao clicar
+                  />
+                  {jogadorIndex === 0 ? '  ' : ''}
                 </span>
               ))}
               <input
@@ -50,9 +42,6 @@ const Campo: React.FC<CampoProps> = ({
           </li>
         ))}
       </ul>
-      {jogoIndex > 0 && (
-        <TrocarJogadoresButton onClick={() => trocarJogadores(campo.id)} />
-      )}
     </div>
   );
 };

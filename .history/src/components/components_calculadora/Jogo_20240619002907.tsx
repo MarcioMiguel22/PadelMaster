@@ -1,6 +1,6 @@
 import React from 'react';
 import { Campo as CampoType, Jogador } from '../../utils/types/types';
-import TrocarJogadoresButton from './TrocarJogadoresButton';
+import TrocarJogadoresButton from './TrocarJogadoresButton'; // Importando o novo componente
 
 interface CampoProps {
   campo: CampoType;

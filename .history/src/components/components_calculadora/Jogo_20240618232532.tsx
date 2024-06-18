@@ -9,18 +9,9 @@ interface JogoProps {
   getTeamClass: (campo: CampoType, timeIndex: number) => string;
   selecionarJogador: (jogador: Jogador) => void;
   jogadoresSelecionados: Jogador[];
-  trocarJogadores: (campoId: number) => void;
 }
 
-const Jogo: React.FC<JogoProps> = ({
-  jogo,
-  jogoIndex,
-  handleResultadoChange,
-  getTeamClass,
-  selecionarJogador,
-  jogadoresSelecionados,
-  trocarJogadores,
-}) => (
+const Jogo: React.FC<JogoProps> = ({ jogo, jogoIndex, handleResultadoChange, getTeamClass, selecionarJogador, jogadoresSelecionados }) => (
   <div className="jogo">
     <h2>Resultados Jogo {jogoIndex + 1}</h2>
     <div className="campos">
@@ -33,7 +24,6 @@ const Jogo: React.FC<JogoProps> = ({
           getTeamClass={getTeamClass}
           selecionarJogador={selecionarJogador}
           jogadoresSelecionados={jogadoresSelecionados}
-          trocarJogadores={trocarJogadores}
         />
       ))}
     </div>
