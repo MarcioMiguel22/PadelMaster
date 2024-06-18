@@ -1,0 +1,27 @@
+/* src/components/components_calculadora/ExportButton.module.css */
+
+.export-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.exportButton {
+  background-color: #4CAF50; /* Verde */
+  border: none;
+  color: white;
+  padding: 10px 20px; /* Reduzido o padding para tornar o botão menor */
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px; /* Reduzido o tamanho da fonte */
+  cursor: pointer;
+  border-radius: 12px; /* Cantos arredondados */
+  transition-duration: 0.4s;
+  margin: 0; /* Remove any margin */
+}
+
+.exportButton:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}

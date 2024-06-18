@@ -1,0 +1,15 @@
+.resetButton {
+  background: linear-gradient(to right, #daefcd, #a8d5ba);
+  color: rgb(4, 4, 4);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition-duration: 0.4s;
+}
+
+.resetButton:hover {
+  background-color: #cc0000; /* Vermelho mais escuro */
+}
