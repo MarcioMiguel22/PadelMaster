@@ -14,8 +14,7 @@ const jogadoresIniciais: Jogador[] = Array.from({ length: 12 }, (_, i) => ({
   nome: `Jogador ${i + 1}`,
   vitorias: 0,
   pontos: 0,
-  pontosPerdidos: 0,
-  totalPontos: 0, // Adicione esta linha
+  pontosPerdidos: 0, // Adicione esta linha
 }));
 
 const embaralharArray = <T,>(array: T[]): T[] => {
@@ -61,21 +60,19 @@ const atualizarRanking = (jogadores: Jogador[], jogos: CampoType[][]) => {
         });
       });
     });
-    const totalPontos = pontos - pontosPerdidos; // Ajuste para calcular a diferença
-    return { ...jogador, vitorias, pontos, pontosPerdidos, totalPontos };
+    return { ...jogador, vitorias, pontos, pontosPerdidos };
   });
 
   return jogadoresAtualizados.sort((a, b) => {
-    if (b.totalPontos === a.totalPontos) {
+    if (b.pontosPerdidos === a.pontosPerdidos) {
       if (b.vitorias === a.vitorias) {
         return b.pontos - a.pontos;
       }
       return b.vitorias - a.vitorias;
     }
-    return b.totalPontos - a.totalPontos; // Maior totalPontos classifica mais alto
+    return a.pontosPerdidos - b.pontosPerdidos; // Menor pontos perdidos classifica mais alto
   });
 };
-
 
 
 const CalculadoraApp: React.FC = () => {

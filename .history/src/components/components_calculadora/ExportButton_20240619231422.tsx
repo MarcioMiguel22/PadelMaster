@@ -24,11 +24,10 @@ const ExportButton: React.FC<ExportButtonProps> = ({ jogadores, jogos }) => {
       jogador.nome,
       jogador.vitorias.toString(), // Transformar número em string
       jogador.pontos.toString(), // Transformar número em string
-      jogador.pontosPerdidos.toString(), // Transformar número em string
-      jogador.totalPontos.toString() // Transformar número em string
+      jogador.pontosPerdidos.toString() // Transformar número em string
     ]);
     doc.autoTable({
-      head: [['Posição', 'Nome', 'Vitórias', 'Pontos', 'Pontos Perdidos', 'Total de Pontos']],
+      head: [['Posição', 'Nome', 'Vitórias', 'Pontos', 'Pontos Perdidos']],
       body: rankingData,
       startY: 30,
       headStyles: { fillColor: '#4CAF50' } // Definir a cor do cabeçalho da tabela como string

@@ -61,18 +61,18 @@ const atualizarRanking = (jogadores: Jogador[], jogos: CampoType[][]) => {
         });
       });
     });
-    const totalPontos = pontos - pontosPerdidos; // Ajuste para calcular a diferença
+    const totalPontos = pontos + pontosPerdidos;
     return { ...jogador, vitorias, pontos, pontosPerdidos, totalPontos };
   });
 
   return jogadoresAtualizados.sort((a, b) => {
-    if (b.totalPontos === a.totalPontos) {
+    if (b.pontosPerdidos === a.pontosPerdidos) {
       if (b.vitorias === a.vitorias) {
         return b.pontos - a.pontos;
       }
       return b.vitorias - a.vitorias;
     }
-    return b.totalPontos - a.totalPontos; // Maior totalPontos classifica mais alto
+    return a.pontosPerdidos - b.pontosPerdidos; // Menor pontos perdidos classifica mais alto
   });
 };
 
