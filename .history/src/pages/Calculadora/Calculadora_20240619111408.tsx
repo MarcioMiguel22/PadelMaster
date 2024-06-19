@@ -273,14 +273,7 @@ const CalculadoraApp: React.FC = () => {
           )}
         </div>
         <div id="ranking-resultados" ref={rankingRef}>
-        <div className="export-button-container">
-            {todosResultadosInseridos && (
-              <>
-                <ExportButton jogadores={jogadoresClassificados} jogos={jogos} />
-                <ResetButton onReset={resetGame} />
-              </>
-            )}
-          </div>
+
           <Ranking jogadoresClassificados={jogadoresClassificados} />
           <div className="export-button-container">
             {todosResultadosInseridos && (
