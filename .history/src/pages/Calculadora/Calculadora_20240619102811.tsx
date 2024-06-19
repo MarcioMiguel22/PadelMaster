@@ -8,6 +8,7 @@ import ScrollToTopButton from '../../components/components_calculadora/ScrollToT
 import DistributeButton from '../../components/components_calculadora/DistributeButton';
 import ExportButton from '../../components/components_calculadora/ExportButton';
 import ResetButton from '../../components/components_calculadora/ResetButton';
+import TrocarJogadoresButton from '../../components/components_calculadora/TrocarJogadoresButton';
 
 const jogadoresIniciais: Jogador[] = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
