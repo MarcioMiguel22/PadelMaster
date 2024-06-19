@@ -6,9 +6,9 @@ export interface Jogador {
   nome: string;
   vitorias: number;
   pontos: number;
-  pontosPerdidos: number;
-  totalPontos: number; // Adicione esta linha
+  pontosPerdidos: number; // Adicione esta linha
 }
+
 export interface Time {
   jogadores: Jogador[];
   resultado: number;
