@@ -239,14 +239,13 @@ const CalculadoraApp: React.FC = () => {
     });
   };
 
-  const todosResultadosInseridos = jogos.length > 0 && jogos.every(jogo =>
+  const todosResultadosInseridos = jogos.length === 5 && jogos.every(jogo =>
     jogo.every(campo =>
       campo.times.every(time =>
         typeof time.resultado === 'number'
       )
     )
   );
-
 
   return (
     <div className="calculadora-container" ref={topRef}>
@@ -273,14 +272,6 @@ const CalculadoraApp: React.FC = () => {
           )}
         </div>
         <div id="ranking-resultados" ref={rankingRef}>
-        <div className="export-button-container">
-            {todosResultadosInseridos && (
-              <>
-                <ExportButton jogadores={jogadoresClassificados} jogos={jogos} />
-                <ResetButton onReset={resetGame} />
-              </>
-            )}
-          </div>
           <Ranking jogadoresClassificados={jogadoresClassificados} />
           <div className="export-button-container">
             {todosResultadosInseridos && (

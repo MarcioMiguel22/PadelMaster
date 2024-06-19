@@ -95,7 +95,7 @@ body {
   border-radius: 5px;
   cursor: text; /* Garantir que o cursor seja de texto para inputs */
   width: auto; /* Ajusta a largura do input ao conteúdo */
-  min-width: 10px; /* Define uma largura mínima para o input */
+  min-width: 50px; /* Define uma largura mínima para o input */
   max-width: 100%; /* Impede que o input exceda a largura do contêiner */
 }
 
