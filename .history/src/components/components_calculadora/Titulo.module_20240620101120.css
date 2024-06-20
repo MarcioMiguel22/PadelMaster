@@ -1,14 +1,14 @@
 /* src/components/Titulo.module.css */
 .container {
-  width: 350px;
-  height: 80px;
+  width: 500px;
+  height: 10px;
   background: linear-gradient(to right, #daefcd, #a8d5ba);
   padding: 1px;
   border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .titulo {

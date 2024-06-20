@@ -1,7 +1,7 @@
 /*src/components/components_calculadora/DistributeButton.module.css*/
 .container {
   width: 350px;
-  height: 95px;
+  height: 100px;
   background: linear-gradient(to right, #daefcd, #a8d5ba);
   padding: 1px;
   border-radius: 15px;

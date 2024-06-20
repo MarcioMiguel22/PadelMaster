@@ -152,13 +152,4 @@ export const iniciarProximoJogo = (jogos: CampoType[][]) => {
  * Ele inclui a criação de times e campos, a atualização do ranking de jogadores com base nos resultados dos jogos,
  * a troca de jogadores entre os campos e a inicialização do próximo jogo.
  * Todas essas funções são utilizadas para manter o estado do jogo atualizado e organizado.
-
- * criarTimes: Embaralha a lista de jogadores e os divide em pares para formar os times.
- * criarCampos: Cria campos a partir da lista de times, atribuindo dois times a cada campo.
- * atualizarRanking: Atualiza o ranking dos jogadores com base nos resultados dos jogos, calculando vitórias, pontos ganhos, pontos perdidos e total de pontos.
- * trocarJogadores: Troca os jogadores de um campo específico, embaralhando-os novamente.
- * iniciarProximoJogo: Inicia o próximo jogo com base nos resultados do jogo anterior, organizando os vencedores e perdedores em novos campos.
-
-
-
-*/
+ */
