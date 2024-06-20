@@ -33,12 +33,8 @@
   transition: transform 1s ease-in-out; /* Adiciona uma transição suave */
 }
 
-.tennisBall.rotate {
-  transform: rotate(360deg); /* Roda a bola em 360 graus */
-}
-
 .label {
-  font-size: 16px;
+  font-size: 25px;
   color: rgb(5, 5, 5);
   font-weight: bold;
   margin-left: 10px;

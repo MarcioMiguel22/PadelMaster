@@ -3,7 +3,7 @@
   background: linear-gradient(to right, #daefcd, #83d1a2);
   color: rgb(19, 17, 17);
   padding: 10px 20px;
-  border: 1px;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: var(--font-size);

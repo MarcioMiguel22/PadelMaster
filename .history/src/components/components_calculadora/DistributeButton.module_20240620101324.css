@@ -1,0 +1,40 @@
+/*src/components/components_calculadora/DistributeButton.module.css*/
+.container {
+  width: 350px;
+  height: 100px;
+  background: linear-gradient(to right, #daefcd, #a8d5ba);
+  padding: 1px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.distributeButton {
+  position: relative; /* Ajuste a posição conforme necessário */
+  width: auto;
+  height: 70px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row; /* Altera para linha */
+}
+
+.tennisBall {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(to right, #daefcd, #a8d5ba); /* Adiciona fundo à imagem */
+  border-radius: 50%; /* Para garantir que o fundo se ajuste à forma da bola */
+  padding: 10px; /* Ajuste o padding conforme necessário */
+}
+
+.label {
+  font-size: 16px;
+  color: rgb(5, 5, 5);
+  font-weight: bold;
+  margin-left: 10px; /* Espaço entre a bola e o texto */
+}

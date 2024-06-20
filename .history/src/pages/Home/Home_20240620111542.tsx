@@ -9,7 +9,7 @@ const PadelPage: React.FC = () => {
   return (
     <div className={styles.padelContainer}>
       <div className={styles.centeredContent}>
-      <Titulo texto="PadelMaster" className={styles.tennisBall} />
+      <Titulo texto="PadelMaster" />
 
         <div className={styles.content}>
           <img src={padelImage} alt="Imagem de Padel" className={styles.padelImage} />
