@@ -12,7 +12,7 @@ import { criarTimes, criarCampos, atualizarRanking, trocarJogadores, iniciarProx
 // Removida a importação não utilizada
 import { handleNomeChange, selecionarJogador } from '../../utils/playerUtils'; // Importe as funções de manipulação de jogadores
 import { todosResultadosInseridos } from '../../utils/resultUtils'; // Importe as funções de manipulação de resultados
-import Titulo from '../../components/components_calculadora/Titulo';
+import Titulo from '../../components/Titulo';
 const jogadoresIniciais: Jogador[] = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
   nome: `Jogador ${i + 1}`,

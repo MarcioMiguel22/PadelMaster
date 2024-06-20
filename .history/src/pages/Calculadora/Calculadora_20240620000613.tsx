@@ -12,7 +12,7 @@ import { criarTimes, criarCampos, atualizarRanking, trocarJogadores, iniciarProx
 // Removida a importação não utilizada
 import { handleNomeChange, selecionarJogador } from '../../utils/playerUtils'; // Importe as funções de manipulação de jogadores
 import { todosResultadosInseridos } from '../../utils/resultUtils'; // Importe as funções de manipulação de resultados
-import Titulo from '../../components/components_calculadora/Titulo';
+
 const jogadoresIniciais: Jogador[] = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
   nome: `Jogador ${i + 1}`,
@@ -127,7 +127,7 @@ const CalculadoraApp: React.FC = () => {
 
   return (
     <div className="calculadora-container" ref={topRef}>
-      <Titulo texto="Jogos de Padel" />
+      <h1>Jogos de Padel</h1>
       <div className="main-content">
         <JogadoresLista jogadores={jogadores} handleNomeChange={handleNomeChangeHandler} />
         <div className="fields-container">
