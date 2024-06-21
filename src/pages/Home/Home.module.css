@@ -1,62 +1,106 @@
+/* Reset some basic elements to ensure cross-browser consistency */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f4f4f9;
+  color: #333;
+}
+
 .padelContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: white;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #fff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  height: 100vh;
-  overflow: hidden; /* Impede a rolagem */
-  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .centeredContent {
-  position: absolute;
-  top: 40%; /* Ajuste este valor conforme necessário para mover o conteúdo mais para cima */
-  left: 50%;
-  transform: translate(-50%, -50%);
+  max-width: 90%;
+  width: 100%;
 }
 
-
+.titulo {
+  font-size: 3rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  background: linear-gradient(to right, #daefcd, #a8d5ba);
+  background-clip: text; /* Add the standard property */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .padelImage {
-  max-width: 50%; /* Aumente isso se necessário */
-  width: auto;
+  max-width: 100%;
   height: auto;
   border-radius: 10px;
   margin-bottom: 20px;
 }
 
+/* Limiting the image size for larger screens */
+@media (min-width: 768px) {
+  .padelImage {
+    max-width: 50%;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .enterButton {
-  background-image: url('../../assets/images/tennis-ball.png'); /* Certifique-se de que o caminho está correto */
+  background-image: url('../../assets/images/tennis-ball.png');
   background-size: cover;
   width: 60px;
   height: 60px;
   border: none;
   border-radius: 50%;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .enterButton:hover {
-  transform: scale(2.0);
+  transform: scale(1.2);
 }
-/* Titulo.module.css */
-.tituloContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.tennisBall {
-  width: 40px;
-  height: 40px;
+
+/* Adjusting layout for mobile devices */
+@media (max-width: 768px) {
+  .padelContainer {
+    justify-content: flex-start;
+    padding-top: 20px;
+  }
+
+  .centeredContent {
+    margin-top: 80px;
+  }
+
+  .titulo {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+
+  .padelImage {
+    max-width: 80%;
+  }
 }
