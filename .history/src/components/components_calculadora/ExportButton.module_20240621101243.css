@@ -1,27 +1,31 @@
+/* src/components/components_calculadora/ExportButton.module.css */
+
 .exportButton {
   background: linear-gradient(to right, #daefcd, #a8d5ba);
   color: rgb(38, 39, 37);
   padding: 10px 20px;
-  width: 300px;
+  width: 200px;
   height: 50px;
   font-weight: 700;
   border: none;
-  border-radius: 0 25px 25px 0; /* Arredondamento uniforme */
+  border-radius: 25%; /* No border radius like the first example */
   cursor: pointer;
   font-size: 16px;
+
+  margin-top: 20px;
   overflow: hidden;
   position: relative;
-  transition: background-color 0.4s, color 0.4s, border 0.4s, box-shadow 0.4s;
+  transition: background-color 0.4s, color 0.4s, border 0.4s;
 }
 
 .exportButton::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 50%;
-  width: 300%;
+  left: 0;
+  width: 100%;
   height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(70, 202, 88, 0.5), transparent);
+  background: linear-gradient(120deg, transparent, #46ca58, transparent);
   transform: translateX(-100%);
   transition: transform 0.6s;
 }
@@ -30,7 +34,6 @@
   background-color: white;
   color: black;
   border: 2px solid #4CAF50;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .exportButton:hover::before {

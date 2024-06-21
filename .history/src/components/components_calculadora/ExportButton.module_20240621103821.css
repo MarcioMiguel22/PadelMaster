@@ -6,9 +6,10 @@
   height: 50px;
   font-weight: 700;
   border: none;
-  border-radius: 0 25px 25px 0; /* Arredondamento uniforme */
+  border-radius: 25px; /* Arredondamento uniforme para ambos os botões */
   cursor: pointer;
   font-size: 16px;
+  margin-top: 20px;
   overflow: hidden;
   position: relative;
   transition: background-color 0.4s, color 0.4s, border 0.4s, box-shadow 0.4s;

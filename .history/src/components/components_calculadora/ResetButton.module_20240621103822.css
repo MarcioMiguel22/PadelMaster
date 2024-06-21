@@ -1,20 +1,21 @@
-.exportButton {
+.resetButton {
   background: linear-gradient(to right, #daefcd, #a8d5ba);
   color: rgb(38, 39, 37);
   padding: 10px 20px;
-  width: 300px;
+  width: 140px; /* Ajustado para um tamanho adequado ao lado do .exportButton */
   height: 50px;
-  font-weight: 700;
+  font-weight: 700; /* Para manter a uniformidade visual */
   border: none;
-  border-radius: 0 25px 25px 0; /* Arredondamento uniforme */
+  border-radius: 25px; /* Arredondamento uniforme para ambos os botões */
   cursor: pointer;
   font-size: 16px;
+  margin-top: 20px;
   overflow: hidden;
   position: relative;
   transition: background-color 0.4s, color 0.4s, border 0.4s, box-shadow 0.4s;
 }
 
-.exportButton::before {
+.resetButton::before {
   content: "";
   position: absolute;
   top: 0;
@@ -26,13 +27,24 @@
   transition: transform 0.6s;
 }
 
-.exportButton:hover {
+.resetButton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -10px; /* Ajusta conforme necessário para um encaixe perfeito */
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(to right, #daefcd, #a8d5ba); /* Mesma cor de fundo do botão */
+  border-radius: 0 50% 50% 0;
+}
+
+.resetButton:hover {
   background-color: white;
   color: black;
   border: 2px solid #4CAF50;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.exportButton:hover::before {
+.resetButton:hover::before {
   transform: translateX(100%);
 }

@@ -6,7 +6,7 @@
   height: 50px;
   font-weight: 700;
   border: none;
-  border-radius: 0 25px 25px 0; /* Arredondamento uniforme */
+  border-radius: 25px;
   cursor: pointer;
   font-size: 16px;
   overflow: hidden;

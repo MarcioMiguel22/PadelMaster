@@ -29,7 +29,7 @@
   height: 50px;
   background: linear-gradient(to right, #daefcd, #a8d5ba);
   border-radius: 100%;
-  padding: 1px;
+  padding: 10px;
   transition: transform 1s ease-in-out; /* Adiciona uma transição suave */
 }
 
