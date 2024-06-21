@@ -153,9 +153,8 @@ const CalculadoraApp: React.FC = () => {
           <div className="export-button-container">
             {resultadosInseridos && (
               <>
-                <ResetButton onReset={resetGame} />
                 <ExportButton jogadores={jogadoresClassificados} jogos={jogos} />
-
+                <ResetButton onReset={resetGame} />
               </>
             )}
           </div>
