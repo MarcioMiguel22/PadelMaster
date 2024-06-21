@@ -51,16 +51,17 @@ body {
 }
 
 .padelImage {
-  max-width: 100%;
-  height: auto;
+  width: auto;
+  height: 70vh; /* Set a height for a ribbon-like appearance */
   border-radius: 10px;
   margin-bottom: 20px;
+  object-fit: cover; /* Ensure the image covers the area without distortion */
 }
 
 /* Limiting the image size for larger screens */
 @media (min-width: 768px) {
   .padelImage {
-    max-width: 50%;
+    height: 60vh; /* Adjust height for larger screens */
   }
 }
 
@@ -92,7 +93,7 @@ body {
   }
 
   .centeredContent {
-    margin-top: 80px;
+    margin-top: 20px;
   }
 
   .titulo {
@@ -101,6 +102,6 @@ body {
   }
 
   .padelImage {
-    max-width: 80%;
+    height: 50vh; /* Adjust height for mobile devices */
   }
 }

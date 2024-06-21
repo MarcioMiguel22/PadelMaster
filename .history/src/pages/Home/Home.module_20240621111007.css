@@ -55,12 +55,16 @@ body {
   height: auto;
   border-radius: 10px;
   margin-bottom: 20px;
+  width: 100%; /* Ensure the image stretches to the full width */
+  height: 150px; /* Fixed height for a ribbon-like appearance */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
 }
 
 /* Limiting the image size for larger screens */
 @media (min-width: 768px) {
   .padelImage {
     max-width: 50%;
+    height: 200px; /* Adjust height for larger screens */
   }
 }
 
@@ -92,7 +96,7 @@ body {
   }
 
   .centeredContent {
-    margin-top: 80px;
+    margin-top: 20px;
   }
 
   .titulo {
@@ -102,5 +106,6 @@ body {
 
   .padelImage {
     max-width: 80%;
+    height: 150px; /* Adjust height for mobile devices */
   }
 }

@@ -83,24 +83,3 @@ body {
 .enterButton:hover {
   transform: scale(1.2);
 }
-
-/* Adjusting layout for mobile devices */
-@media (max-width: 768px) {
-  .padelContainer {
-    justify-content: flex-start;
-    padding-top: 20px;
-  }
-
-  .centeredContent {
-    margin-top: 80px;
-  }
-
-  .titulo {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-  }
-
-  .padelImage {
-    max-width: 80%;
-  }
-}
