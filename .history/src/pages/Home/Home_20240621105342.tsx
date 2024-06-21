@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Home.module.css';
 import padelImage from '../../assets/images/inicio.jpg';
+import Titulo from '../../components/components_calculadora/Titulo';
 
 const PadelPage: React.FC = () => {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ const PadelPage: React.FC = () => {
   return (
     <div className={styles.padelContainer}>
       <div className={styles.centeredContent}>
-        <h1 className={styles.titulo}>PadelMaster</h1>
+        <Titulo texto="PadelMaster" className={styles.titulo} />
         <div className={styles.content}>
           <img src={padelImage} alt="Imagem de Padel" className={styles.padelImage} />
           <div className={styles.buttonContainer}>

@@ -31,12 +31,9 @@ body {
 }
 
 .titulo {
-  font-size: 3rem;
+  font-size: 2rem;
   color: #2c3e50;
   margin-bottom: 20px;
-  background: linear-gradient(to right, #daefcd, #a8d5ba);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .content {
@@ -54,13 +51,6 @@ body {
   height: auto;
   border-radius: 10px;
   margin-bottom: 20px;
-}
-
-/* Limiting the image size for larger screens */
-@media (min-width: 768px) {
-  .padelImage {
-    max-width: 50%;
-  }
 }
 
 .buttonContainer {

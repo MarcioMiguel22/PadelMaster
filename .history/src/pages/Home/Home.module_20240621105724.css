@@ -56,13 +56,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* Limiting the image size for larger screens */
-@media (min-width: 768px) {
-  .padelImage {
-    max-width: 50%;
-  }
-}
-
 .buttonContainer {
   display: flex;
   justify-content: center;
