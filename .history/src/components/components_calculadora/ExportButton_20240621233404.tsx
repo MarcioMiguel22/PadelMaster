@@ -106,7 +106,7 @@ const ExportButton: React.FC<ExportButtonProps> = ({ jogadores, jogos }) => {
   return (
     <div className={styles['export-button-container']}>
       <button onClick={exportAndSendPDF} className={styles.exportButton}>
-        Exportar Resultados em PDF
+        Exportar Resultados em PDF e Enviar ao Backend
       </button>
     </div>
   );
