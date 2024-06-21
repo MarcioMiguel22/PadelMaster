@@ -10,7 +10,7 @@ interface ExportButtonProps {
 }
 
 const ExportButton: React.FC<ExportButtonProps> = ({ jogadores, jogos }) => {
-  const exportAndSendPDF = async () => {
+  const exportPDF = () => {
     const doc = new jsPDF();
 
     // Definir a cor do texto para verde
@@ -20,18 +20,18 @@ const ExportButton: React.FC<ExportButtonProps> = ({ jogadores, jogos }) => {
     doc.setFontSize(18);
     doc.text('Ranking dos Jogadores', 20, 20);
     const rankingData = jogadores.map((jogador, index) => [
-      (index + 1).toString(),
+      (index + 1).toString(), // Transformar número em string
       jogador.nome,
-      jogador.vitorias.toString(),
-      jogador.pontos.toString(),
-      jogador.pontosPerdidos.toString(),
-      jogador.totalPontos.toString()
+      jogador.vitorias.toString(), // Transformar número em string
+      jogador.pontos.toString(), // Transformar número em string
+      jogador.pontosPerdidos.toString(), // Transformar número em string
+      jogador.totalPontos.toString() // Transformar número em string
     ]);
     doc.autoTable({
       head: [['Posição', 'Nome', 'Vitórias', 'Pontos', 'Pontos Perdidos', 'Total de Pontos']],
       body: rankingData,
       startY: 30,
-      headStyles: { fillColor: '#4CAF50' }
+      headStyles: { fillColor: '#4CAF50' } // Definir a cor do cabeçalho da tabela como string
     });
 
     // Adicionar Resultados dos Jogos
@@ -44,26 +44,27 @@ const ExportButton: React.FC<ExportButtonProps> = ({ jogadores, jogos }) => {
       doc.text(`Jogo ${jogoIndex + 1}`, 20, startY);
       jogo.forEach((campo) => {
         const campoData = campo.times.map((time, timeIndex) => [
-          `Equipa ${timeIndex + 1}`,
+          `Equipa ${timeIndex + 1}`, // Translate to "Equipa"
           time.jogadores.map(jogador => jogador.nome).join(', '),
-          time.resultado.toString()
+          time.resultado.toString() // Transformar número em string
         ]);
         doc.autoTable({
-          head: [['Equipa', 'Jogadores', 'Resultado']],
+          head: [['Equipa', 'Jogadores', 'Resultado']], // Translate header to "Equipa"
           body: campoData,
           startY: startY + 10,
-          headStyles: { fillColor: '#4CAF50' }
+          headStyles: { fillColor: '#4CAF50' } // Definir a cor do cabeçalho da tabela como string
         });
-        startY += 10 + (campo.times.length * 10);
+        startY += 10 + (campo.times.length * 10); // Update startY based on content
       });
       doc.addPage();
       startY = 30;
     });
 
-    // Salvar PDF localmente
+    // Salvar PDF
     doc.save('resultados.pdf');
+  };
 
-    // Enviar dados para o backend
+  const sendResultsToBackend = async () => {
     const data = {
       data: new Date().toLocaleDateString('pt-BR'),
       jogos: jogos.map((jogo, jogoIndex) => ({
@@ -83,7 +84,7 @@ const ExportButton: React.FC<ExportButtonProps> = ({ jogadores, jogos }) => {
         )
       }))
     };
-    console.log(data)
+
     try {
       const response = await fetch('/api/save-results/', {
         method: 'POST',
@@ -105,8 +106,11 @@ const ExportButton: React.FC<ExportButtonProps> = ({ jogadores, jogos }) => {
 
   return (
     <div className={styles['export-button-container']}>
-      <button onClick={exportAndSendPDF} className={styles.exportButton}>
+      <button onClick={exportPDF} className={styles.exportButton}>
         Exportar Resultados em PDF
+      </button>
+      <button onClick={sendResultsToBackend} className={styles.exportButton}>
+        Enviar Resultados ao Backend
       </button>
     </div>
   );
