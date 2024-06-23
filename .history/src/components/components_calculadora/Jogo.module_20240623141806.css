@@ -1,0 +1,65 @@
+/* Jogo.module.css */
+
+/* Style for the entire game container */
+.jogo {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+/* Header styling */
+.jogo h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Container for all fields */
+.campos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Styling for each individual field, assuming the Campo component has a class "campo" */
+.campo {
+  flex: 1 1 calc(33.333% - 20px);
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.campo:hover {
+  transform: scale(1.05);
+}
+
+/* Styling for the team result input */
+.resultado {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Styling for the team classes */
+.time-0 {
+  color: blue;
+}
+
+.time-1 {
+  color: red;
+}
+
+/* Selected players styling */
+.jogador-selecionado {
+  border: 2px solid #007bff;
+  background-color: #e9f7ff;
+}
+
+/* Add more styles as needed */

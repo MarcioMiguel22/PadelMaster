@@ -1,0 +1,137 @@
+
+.field {
+  background: linear-gradient(to right, #c3e8ad, #a8d5ba);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  width: calc(40%); /* Ajusta a largura para considerar o padding */
+  min-width: 28px;
+  margin: 0px; /* Adiciona margem para espaçamento extra */
+  cursor: default; /* Garante que o cursor seja padrão para os campos */
+  overflow: hidden; /* Evita que o conteúdo transborde */
+  box-sizing: border-box; /* Inclui padding e bordas na largura total */
+}
+
+.field h2 {
+  margin-top: 0;
+  cursor: default; /* Garantir que o cursor seja padrão para títulos */
+  margin-bottom: 25px;
+}
+.field ul {
+  list-style-type: none;
+  padding: 0;
+}
+.field li {
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.field li div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.field li span {
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.field li span:hover {
+  background-color: #f0f0f0;
+}
+.resultado-input {
+  width: 50px;
+  padding: 4px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+}
+.trocar-jogadores-button {
+  margin-top: 16px;
+}
+.team {
+  list-style-type: none;
+  padding: 10px;
+  background-color: #fff;
+  margin: 5px 0;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  cursor: default; /* Garantir que o cursor seja padrão para listas de times */
+}
+
+.team.vencedor {
+  background-color: #d4edda;
+}
+
+.team.perdedor {
+  background-color: #f8d7da;
+}
+
+.team div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.team input.jogador-input {
+  min-width: 50px;
+  margin-right: 10px;
+  cursor: text; /* Garantir que o cursor seja de texto para inputs */
+}
+
+.team input.jogador-input {
+  min-width: 100px;
+  margin-right: 10px;
+  cursor: text; /* Garantir que o cursor seja de texto para inputs */
+}
+
+
+
+/* Media Queries for Mobile */
+@media screen and (max-width: 767px) {
+  .jogadores-lista {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .field {
+    width: auto;
+    min-width: 325px;
+    margin-bottom: 20px;
+  }
+
+  .campos {
+
+    gap: 20px;
+  }
+
+  .distribute-button, .scroll-to-top {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .team div {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .team input.resultado-input {
+
+
+  }
+
+
+}

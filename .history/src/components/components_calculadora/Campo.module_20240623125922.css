@@ -1,0 +1,256 @@
+
+
+
+
+
+
+
+
+
+
+.jogadores-coluna {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: default; /* Garantir que o cursor seja padrão para as colunas de jogadores */
+}
+
+.jogador-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: default; /* Garantir que o cursor seja padrão para os itens de jogadores */
+}
+
+.jogador-item label {
+  margin-right: 10px;
+  cursor: default; /* Garantir que o cursor seja padrão para os rótulos */
+}
+
+.jogador-input {
+  margin-right: 5px;
+  padding: var(--input-padding);
+  font-size: var(--font-size);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: text; /* Garantir que o cursor seja de texto para inputs */
+  width: auto; /* Ajusta a largura do input ao conteúdo */
+  min-width: 10px; /* Define uma largura mínima para o input */
+  max-width: 100%; /* Impede que o input exceda a largura do contêiner */
+}
+
+.distribute-button, .scroll-to-top {
+  background-color: var(--main-bg-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: var(--font-size);
+  margin-top: 10px;
+}
+
+.distribute-button:hover, .scroll-to-top:hover {
+  background-color: var(--main-hover-color);
+}
+
+.jogo {
+  margin-bottom: 40px;
+}
+
+.field {
+  background: linear-gradient(to right, #c3e8ad, #a8d5ba);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  width: 25%;
+  min-width: 28px;
+  margin: 25px; /* Added margin for extra spacing */
+  cursor: default; /* Garantir que o cursor seja padrão para os campos */
+}
+
+.field h2 {
+  margin-top: 0;
+  cursor: default; /* Garantir que o cursor seja padrão para títulos */
+}
+.field ul {
+  list-style-type: none;
+  padding: 0;
+}
+.field li {
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.field li div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.field li span {
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.field li span:hover {
+  background-color: #f0f0f0;
+}
+.resultado-input {
+  width: 50px;
+  padding: 4px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+}
+.trocar-jogadores-button {
+  margin-top: 16px;
+
+}
+.team {
+  list-style-type: none;
+  padding: 10px;
+  background-color: #fff;
+  margin: 5px 0;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  cursor: default; /* Garantir que o cursor seja padrão para listas de times */
+}
+
+.team.vencedor {
+  background-color: #d4edda;
+}
+
+.team.perdedor {
+  background-color: #f8d7da;
+}
+
+.team div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.team input.jogador-input {
+  min-width: 50px;
+  margin-right: 10px;
+  cursor: text; /* Garantir que o cursor seja de texto para inputs */
+}
+
+.team input.jogador-input {
+  min-width: 100px;
+  margin-right: 10px;
+  cursor: text; /* Garantir que o cursor seja de texto para inputs */
+}
+
+.ranking-container {
+  margin-top: 40px;
+  text-align: center; /* Centraliza o conteúdo dentro do contêiner */
+}
+
+.ranking-container h2 {
+  margin-bottom: 10px;
+  cursor: default; /* Garantir que o cursor seja padrão para títulos */
+}
+
+.ranking-container ul {
+  list-style-type: none;
+  padding: 0;
+  cursor: default; /* Garantir que o cursor seja padrão para listas */
+}
+
+.ranking-container li {
+  margin: 5px 0;
+  cursor: default; /* Garantir que o cursor seja padrão para itens de lista */
+}
+
+.export-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.export-button {
+  background-color: #4CAF50; /* Verde */
+  border: none;
+  color: white;
+  padding: 10px 20px; /* Reduzido o padding para tornar o botão menor */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px; /* Reduzido o tamanho da fonte */
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px; /* Cantos arredondados */
+  transition-duration: 0.4s;
+}
+
+.export-button:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+
+/* Media Queries for Mobile */
+@media screen and (max-width: 767px) {
+  .jogadores-lista {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .campos {
+
+    gap: 20px;
+  }
+
+  .distribute-button, .scroll-to-top {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .team div {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .team input.resultado-input {
+    margin-left: 80px;
+    margin-top: 25px;
+  }
+
+  .ranking-container {
+    flex-flow: column;
+    margin-top: 40px;
+  }
+
+  .ranking-container h2 {
+    margin-bottom: 10px;
+  }
+
+  .ranking-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .ranking-container li {
+    margin: 5px 0;
+  }
+}

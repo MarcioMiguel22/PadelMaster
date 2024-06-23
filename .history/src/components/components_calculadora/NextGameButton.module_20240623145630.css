@@ -1,0 +1,42 @@
+.nextGameButton {
+  background: linear-gradient(to right, #daefcd, #a8d5ba); /* Mesma cor de fundo do botão */
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  border-radius: 12px;
+}
+
+.nextGameButton:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+.nextGameButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 300%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(70, 202, 88, 0.5), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.nextGameButton:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nextGameButton::before {
+  transform: translateX(100%);
+}

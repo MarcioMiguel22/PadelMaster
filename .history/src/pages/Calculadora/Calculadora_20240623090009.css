@@ -1,0 +1,279 @@
+
+:root {
+  --main-bg-color: #4CAF50;
+  --main-hover-color: #45a049;
+  --input-padding: 5px;
+  --font-size: 16px;
+  --box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  cursor: default; /* Definindo o cursor padrão para o corpo */
+}
+
+.calculadora-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.jogadores-lista {
+  background: linear-gradient(to right, #daefcd, #a8d5ba);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  overflow-x: hidden; /* Adicionado para evitar overflow horizontal */
+  cursor: default; /* Garantir que o cursor seja padrão para a lista de jogadores */
+}
+
+.fields-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 100vw;
+  cursor: default; /* Garantir que o cursor seja padrão para os campos */
+}
+
+.campos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  overflow-x: hidden;
+  gap: 20px; /* Added gap between fields */
+  cursor: default; /* Garantir que o cursor seja padrão para os campos */
+}
+
+.jogadores-coluna {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: default; /* Garantir que o cursor seja padrão para as colunas de jogadores */
+}
+
+.jogador-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: default; /* Garantir que o cursor seja padrão para os itens de jogadores */
+}
+
+.jogador-item label {
+  margin-right: 10px;
+  cursor: default; /* Garantir que o cursor seja padrão para os rótulos */
+}
+
+.jogador-input {
+  margin-right: 5px;
+  padding: var(--input-padding);
+  font-size: var(--font-size);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: text; /* Garantir que o cursor seja de texto para inputs */
+  width: auto; /* Ajusta a largura do input ao conteúdo */
+  min-width: 10px; /* Define uma largura mínima para o input */
+  max-width: 100%; /* Impede que o input exceda a largura do contêiner */
+}
+
+.distribute-button, .scroll-to-top {
+  background-color: var(--main-bg-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: var(--font-size);
+  margin-top: 10px;
+}
+
+.distribute-button:hover, .scroll-to-top:hover {
+  background-color: var(--main-hover-color);
+}
+
+.jogo {
+  margin-bottom: 40px;
+}
+
+.field {
+  background: linear-gradient(to right, #c3e8ad, #a8d5ba);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  width: 30%;
+  min-width: 28px;
+  margin: 50px; /* Added margin for extra spacing */
+  cursor: default; /* Garantir que o cursor seja padrão para os campos */
+}
+
+.field h2 {
+  margin-top: 0;
+  cursor: default; /* Garantir que o cursor seja padrão para títulos */
+}
+
+.team {
+  list-style-type: none;
+  padding: 10px;
+  background-color: #fff;
+  margin: 5px 0;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  cursor: default; /* Garantir que o cursor seja padrão para listas de times */
+}
+
+.team.vencedor {
+  background-color: #d4edda;
+}
+
+.team.perdedor {
+  background-color: #f8d7da;
+}
+
+.team div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.team input.jogador-input {
+  min-width: 100px;
+  margin-right: 10px;
+  cursor: text; /* Garantir que o cursor seja de texto para inputs */
+}
+
+.team input.resultado-input {
+  margin-left: 10px;
+  padding: var(--input-padding);
+  font-size: var(--font-size);
+  cursor: text; /* Garantir que o cursor seja de texto para inputs */
+}
+
+.ranking-container {
+  margin-top: 40px;
+  text-align: center; /* Centraliza o conteúdo dentro do contêiner */
+}
+
+.ranking-container h2 {
+  margin-bottom: 10px;
+  cursor: default; /* Garantir que o cursor seja padrão para títulos */
+}
+
+.ranking-container ul {
+  list-style-type: none;
+  padding: 0;
+  cursor: default; /* Garantir que o cursor seja padrão para listas */
+}
+
+.ranking-container li {
+  margin: 5px 0;
+  cursor: default; /* Garantir que o cursor seja padrão para itens de lista */
+}
+
+.export-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.export-button {
+  background-color: #4CAF50; /* Verde */
+  border: none;
+  color: white;
+  padding: 10px 20px; /* Reduzido o padding para tornar o botão menor */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px; /* Reduzido o tamanho da fonte */
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px; /* Cantos arredondados */
+  transition-duration: 0.4s;
+}
+
+.export-button:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+
+/* Media Queries for Mobile */
+@media screen and (max-width: 767px) {
+  .jogadores-lista {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .field {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .campos {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .distribute-button, .scroll-to-top {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .team div {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .team input.resultado-input {
+    margin-left: 25;
+    margin-top: 5px;
+  }
+
+  .ranking-container {
+    flex-flow: column;
+    margin-top: 40px;
+  }
+
+  .ranking-container h2 {
+    margin-bottom: 10px;
+  }
+
+  .ranking-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .ranking-container li {
+    margin: 5px 0;
+  }
+}

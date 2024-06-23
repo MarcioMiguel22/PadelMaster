@@ -1,0 +1,47 @@
+/* Jogo.module.css */
+
+/* Style for the entire game container */
+
+
+/* Header styling */
+.jogo h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Container for all fields */
+
+
+/* Styling for each individual field, assuming the Campo component has a class "campo" */
+
+
+.campo:hover {
+  transform: scale(1.05);
+}
+
+/* Styling for the team result input */
+.resultado {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Styling for the team classes */
+.time-0 {
+  color: blue;
+}
+
+.time-1 {
+  color: red;
+}
+
+/* Selected players styling */
+.jogador-selecionado {
+  border: 2px solid #007bff;
+  background-color: #e9f7ff;
+}
+
+/* Add more styles as needed */

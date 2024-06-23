@@ -1,0 +1,11 @@
+/* Jogo.module.css */
+
+/* Header styling */
+.header {
+  flex: auto;
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #ee1010;
+  align-items: center;
+}
