@@ -128,7 +128,7 @@ const CalculadoraApp: React.FC = () => {
 
   return (
     <div className="calculadora-container" ref={topRef}>
-      <Titulo texto="Sobe & Desce" />
+      <Titulo texto="Jogos de Padel Sobe & Desce" />
       <div className="main-content">
         <JogadoresLista jogadores={jogadores} handleNomeChange={handleNomeChangeHandler} />
         <div className="fields-container">
