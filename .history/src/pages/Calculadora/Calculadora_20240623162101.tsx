@@ -31,7 +31,7 @@ const CalculadoraApp: React.FC = () => {
   const [jogadoresSelecionados, setJogadoresSelecionados] = useState<Jogador[]>([]);
 
   const topRef = useRef<HTMLDivElement>(null);
-  const resultsRefs = useRef<(HTMLDivElement | null)[]>(new Array(5).fill(null)); // Alterado para garantir 5 refs
+  const resultsRefs = useRef<(HTMLDivElement | null)[]>([]);
   const rankingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -164,8 +164,7 @@ const CalculadoraApp: React.FC = () => {
         </div>
         <ScrollToTopButton
           refs={[
-            topRef,
-            ...resultsRefs.current.filter(ref => ref !== null),
+            ...resultsRefs.current,
             rankingRef,
           ]}
         />
