@@ -152,14 +152,12 @@ const CalculadoraApp: React.FC = () => {
           )}
         </div>
         <div id="ranking-resultados" ref={rankingRef}>
-        <div className="export-button-container">
-            {resultadosInseridos && (
+        {resultadosInseridos && (
               <>
                 <ResetButton onReset={resetGame} />
                 <ExportButton jogadores={jogadoresClassificados} jogos={jogos} />
               </>
             )}
-          </div>
           <Ranking jogadoresClassificados={jogadoresClassificados} />
           <div className="export-button-container">
             {resultadosInseridos && (
