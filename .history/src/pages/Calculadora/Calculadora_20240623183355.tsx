@@ -13,7 +13,7 @@ import { handleNomeChange, selecionarJogador } from '../../utils/playerUtils';
 import { todosResultadosInseridos } from '../../utils/resultUtils';
 import Titulo from '../../components/components_calculadora/Titulo';
 import NextGameButton from '../../components/components_calculadora/NextGameButton';
-import NavBar from '../../components/components_calculadora/NavBar';
+import NavBar from '../../components/components_calculadora/NavBar'; // Importando o componente NavBar
 
 const jogadoresIniciais: Jogador[] = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
@@ -32,7 +32,7 @@ const CalculadoraApp: React.FC = () => {
   const [jogadoresSelecionados, setJogadoresSelecionados] = useState<Jogador[]>([]);
 
   const topRef = useRef<HTMLDivElement>(null);
-  const resultsRefs = useRef<(HTMLDivElement | null)[]>(new Array(5).fill(null));
+  const resultsRefs = useRef<(HTMLDivElement | null)[]>(new Array(5).fill(null)); // Alterado para garantir 5 refs
   const rankingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -84,6 +84,7 @@ const CalculadoraApp: React.FC = () => {
     const novosJogos = [novosCampos];
     setJogos(novosJogos);
     setJogadores(atualizarRanking(jogadores, novosJogos));
+    scrollToResults(); // Chama a função de rolagem após a distribuição dos jogadores
   };
 
   const handleTrocarJogadores = (campoId: number) => {
@@ -124,13 +125,19 @@ const CalculadoraApp: React.FC = () => {
     setJogadoresSelecionados(jogadoresAtualizados);
   };
 
+  const scrollToResults = () => {
+    if (resultsRefs.current[0]) {
+      resultsRefs.current[0].scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const resultadosInseridos = todosResultadosInseridos(jogos);
 
   const jogadoresClassificados = atualizarRanking(jogadores, jogos);
 
   return (
     <div className="calculadora-container" ref={topRef}>
-      <NavBar items={['Home', 'Jogadores', 'Resultados', 'Ranking']} /> {/* Adicionando o NavBar aqui */}
+      <NavBar items={['Home', 'Jogos', 'Resultados', 'Ranking']} /> {/* Adicionando o NavBar aqui */}
       <Titulo texto="Sobe & Desce" />
       <div className="main-content">
         <JogadoresLista jogadores={jogadores} handleNomeChange={handleNomeChangeHandler} />
@@ -154,7 +161,7 @@ const CalculadoraApp: React.FC = () => {
           )}
         </div>
         <div id="ranking-resultados" ref={rankingRef}>
-          <div className="export-button-container">
+        <div className="export-button-container">
             {resultadosInseridos && (
               <>
                 <ResetButton onReset={resetGame} />
@@ -179,7 +186,8 @@ const CalculadoraApp: React.FC = () => {
             rankingRef,
           ]}
         />
-      </div>
+
+    </div>
     </div>
   );
 };

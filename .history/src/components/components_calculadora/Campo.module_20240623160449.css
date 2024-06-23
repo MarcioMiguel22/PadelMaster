@@ -9,10 +9,8 @@
   margin: 0px; /* Adiciona margem para espaçamento extra */
   cursor: default; /* Garante que o cursor seja padrão para os campos */
   overflow: hidden; /* Evita que o conteúdo transborde */
- margin-bottom: 50px;
   box-sizing: border-box; /* Inclui padding e bordas na largura total */
 }
-
 
 .field h2 {
   margin-top: 0;

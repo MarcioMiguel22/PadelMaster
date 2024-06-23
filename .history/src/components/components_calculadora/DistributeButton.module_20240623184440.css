@@ -8,8 +8,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 150px;
-  margin-bottom: 25px;
+  margin-top: 20px;
+  margin-bottom: 64px;
 }
 
 .distributeButton {
@@ -34,9 +34,49 @@
   transition: transform 1s ease-in-out; /* Adiciona uma transição suave */
 }
 
+.tennisBall.rotate {
+  transform: rotate(360deg); /* Roda a bola em 360 graus */
+}
+
 .label {
-  font-size: 25px;
+  font-size: 16px;
   color: rgb(5, 5, 5);
   font-weight: bold;
   margin-left: 10px;
+}
+.container {
+  position: relative;
+}
+
+.distributeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 1s, left 1s, bottom 1s;
+}
+
+.tennisBall {
+  width: 50px;
+  height: 50px;
+  transition: transform 1s;
+}
+
+.rotate {
+  transform: rotate(360deg);
+}
+
+.label {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.moveToCenterLeft {
+  position: fixed;
+  bottom: 50%;
+  left: 10px;
+  transform: translateY(50%);
+  transition: all 1s;
 }

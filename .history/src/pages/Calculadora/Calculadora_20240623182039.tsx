@@ -13,7 +13,9 @@ import { handleNomeChange, selecionarJogador } from '../../utils/playerUtils';
 import { todosResultadosInseridos } from '../../utils/resultUtils';
 import Titulo from '../../components/components_calculadora/Titulo';
 import NextGameButton from '../../components/components_calculadora/NextGameButton';
-import NavBar from '../../components/components_calculadora/NavBar';
+import NavBar from '../../components/components_calculadora/NavBar'; // Importando o componente NavBar
+import Footer from '../../components/components_calculadora/Footer'; // Importando o componente Footer
+
 
 const jogadoresIniciais: Jogador[] = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
@@ -32,7 +34,7 @@ const CalculadoraApp: React.FC = () => {
   const [jogadoresSelecionados, setJogadoresSelecionados] = useState<Jogador[]>([]);
 
   const topRef = useRef<HTMLDivElement>(null);
-  const resultsRefs = useRef<(HTMLDivElement | null)[]>(new Array(5).fill(null));
+  const resultsRefs = useRef<(HTMLDivElement | null)[]>(new Array(5).fill(null)); // Alterado para garantir 5 refs
   const rankingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -129,57 +131,62 @@ const CalculadoraApp: React.FC = () => {
   const jogadoresClassificados = atualizarRanking(jogadores, jogos);
 
   return (
-    <div className="calculadora-container" ref={topRef}>
-      <NavBar items={['Home', 'Jogadores', 'Resultados', 'Ranking']} /> {/* Adicionando o NavBar aqui */}
-      <Titulo texto="Sobe & Desce" />
-      <div className="main-content">
-        <JogadoresLista jogadores={jogadores} handleNomeChange={handleNomeChangeHandler} />
-        <div className="fields-container">
-          {showDistributeButton && <DistributeButton onClick={distribuirJogadores} />}
-          {jogos.map((jogo, jogoIndex) => (
-            <div ref={(el) => resultsRefs.current[jogoIndex] = el} key={jogoIndex}>
-              <Jogo
-                jogo={jogo}
-                jogoIndex={jogoIndex}
-                handleResultadoChange={handleResultadoChange}
-                getTeamClass={getTeamClass}
-                selecionarJogador={handleSelecionarJogador}
-                jogadoresSelecionados={jogadoresSelecionados}
-                trocarJogadores={handleTrocarJogadores}
-              />
+    <div id="root">
+      <main>
+        <div className="calculadora-container" ref={topRef}>
+          <NavBar items={['Home', 'Jogadores', 'Resultados', 'Ranking']} /> {/* Adicionando o NavBar aqui */}
+          <Titulo texto="Sobe & Desce" />
+          <div className="main-content">
+            <JogadoresLista jogadores={jogadores} handleNomeChange={handleNomeChangeHandler} />
+            <div className="fields-container">
+              {showDistributeButton && <DistributeButton onClick={distribuirJogadores} />}
+              {jogos.map((jogo, jogoIndex) => (
+                <div ref={(el) => resultsRefs.current[jogoIndex] = el} key={jogoIndex}>
+                  <Jogo
+                    jogo={jogo}
+                    jogoIndex={jogoIndex}
+                    handleResultadoChange={handleResultadoChange}
+                    getTeamClass={getTeamClass}
+                    selecionarJogador={handleSelecionarJogador}
+                    jogadoresSelecionados={jogadoresSelecionados}
+                    trocarJogadores={handleTrocarJogadores}
+                  />
+                </div>
+              ))}
+              {jogos.length > 0 && jogos.length < 5 && (
+                <NextGameButton jogoIndex={jogos.length} onClick={iniciarProximoJogoHandler} />
+              )}
             </div>
-          ))}
-          {jogos.length > 0 && jogos.length < 5 && (
-            <NextGameButton jogoIndex={jogos.length} onClick={iniciarProximoJogoHandler} />
-          )}
-        </div>
-        <div id="ranking-resultados" ref={rankingRef}>
-          <div className="export-button-container">
-            {resultadosInseridos && (
-              <>
-                <ResetButton onReset={resetGame} />
-                <ExportButton jogadores={jogadoresClassificados} jogos={jogos} />
-              </>
-            )}
+            <div id="ranking-resultados" ref={rankingRef}>
+              <div className="export-button-container">
+                {resultadosInseridos && (
+                  <>
+                    <ResetButton onReset={resetGame} />
+                    <ExportButton jogadores={jogadoresClassificados} jogos={jogos} />
+                  </>
+                )}
+              </div>
+              <Ranking jogadoresClassificados={jogadoresClassificados} />
+              <div className="export-button-container">
+                {resultadosInseridos && (
+                  <>
+                    <ResetButton onReset={resetGame} />
+                    <ExportButton jogadores={jogadoresClassificados} jogos={jogos} />
+                  </>
+                )}
+              </div>
+            </div>
+            <ScrollToTopButton
+              refs={[
+                topRef,
+                ...resultsRefs.current.filter(ref => ref !== null),
+                rankingRef,
+              ]}
+            />
           </div>
-          <Ranking jogadoresClassificados={jogadoresClassificados} />
-          <div className="export-button-container">
-            {resultadosInseridos && (
-              <>
-                <ResetButton onReset={resetGame} />
-                <ExportButton jogadores={jogadoresClassificados} jogos={jogos} />
-              </>
-            )}
-          </div>
         </div>
-        <ScrollToTopButton
-          refs={[
-            topRef,
-            ...resultsRefs.current.filter(ref => ref !== null),
-            rankingRef,
-          ]}
-        />
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 };

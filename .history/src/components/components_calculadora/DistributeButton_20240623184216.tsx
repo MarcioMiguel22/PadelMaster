@@ -4,6 +4,7 @@ import styles from './DistributeButton.module.css';
 
 const DistributeButton: React.FC<{ onClick: () => void }> = ({ onClick }) => {
   const [isRotating, setIsRotating] = useState(false);
+  const [isMoving, setIsMoving] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -12,12 +13,14 @@ const DistributeButton: React.FC<{ onClick: () => void }> = ({ onClick }) => {
 
   const handleClick = () => {
     setIsRotating(true);
+    setIsMoving(true);
 
     setTimeout(() => {
       setIsRotating(false);
       onClick();
       scrollToDistributeButton(); // Chama a função de rolagem após a animação
-    }, 1000); // Tempo da animação em milissegundos
+      setIsMoving(false);
+    }, 2000); // Tempo total da animação em milissegundos (1s para mover + 1s para rotação)
   };
 
   const scrollToDistributeButton = () => {
@@ -28,7 +31,11 @@ const DistributeButton: React.FC<{ onClick: () => void }> = ({ onClick }) => {
 
   return (
     <div className={styles.container}>
-      <button ref={buttonRef} onClick={handleClick} className={styles.distributeButton}>
+      <button
+        ref={buttonRef}
+        onClick={handleClick}
+        className={`${styles.distributeButton} ${isMoving ? styles.moveToCorner : ''}`}
+      >
         <img
           src={tennisBall}
           alt="Tennis Ball"

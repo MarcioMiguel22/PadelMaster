@@ -4,6 +4,7 @@ import styles from './DistributeButton.module.css';
 
 const DistributeButton: React.FC<{ onClick: () => void }> = ({ onClick }) => {
   const [isRotating, setIsRotating] = useState(false);
+  const [isMoving, setIsMoving] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -12,6 +13,7 @@ const DistributeButton: React.FC<{ onClick: () => void }> = ({ onClick }) => {
 
   const handleClick = () => {
     setIsRotating(true);
+    setIsMoving(true);
 
     setTimeout(() => {
       setIsRotating(false);
@@ -28,7 +30,11 @@ const DistributeButton: React.FC<{ onClick: () => void }> = ({ onClick }) => {
 
   return (
     <div className={styles.container}>
-      <button ref={buttonRef} onClick={handleClick} className={styles.distributeButton}>
+      <button
+        ref={buttonRef}
+        onClick={handleClick}
+        className={`${styles.distributeButton} ${isMoving ? styles.moveToCenterLeft : ''}`}
+      >
         <img
           src={tennisBall}
           alt="Tennis Ball"

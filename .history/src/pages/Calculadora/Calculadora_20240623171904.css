@@ -45,7 +45,7 @@ body {
   box-shadow: var(--box-shadow);
   overflow-x: hidden; /* Adicionado para evitar overflow horizontal */
   cursor: default; /* Garantir que o cursor seja padrão para a lista de jogadores */
-
+  margin-bottom: 150px;
 }
 
 .fields-container {

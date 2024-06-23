@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Home.module.css';
-import padelImage from '../../assets/images/inicio.jpg'; // Remova esta linha se não estiver usando 'padelImage'
-
-// Remova esta linha:
-// import tennisBall from '../../assets/images/tennis-ball.png';
+import padelImage from '../../assets/images/inicio.jpg';
+import tennisBall from '../../assets/images/tennis-ball.png';
 
 const PadelPage: React.FC = () => {
   const navigate = useNavigate();

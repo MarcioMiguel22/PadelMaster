@@ -13,7 +13,6 @@ import { handleNomeChange, selecionarJogador } from '../../utils/playerUtils';
 import { todosResultadosInseridos } from '../../utils/resultUtils';
 import Titulo from '../../components/components_calculadora/Titulo';
 import NextGameButton from '../../components/components_calculadora/NextGameButton';
-import NavBar from '../../components/components_calculadora/NavBar';
 
 const jogadoresIniciais: Jogador[] = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
@@ -32,7 +31,7 @@ const CalculadoraApp: React.FC = () => {
   const [jogadoresSelecionados, setJogadoresSelecionados] = useState<Jogador[]>([]);
 
   const topRef = useRef<HTMLDivElement>(null);
-  const resultsRefs = useRef<(HTMLDivElement | null)[]>(new Array(5).fill(null));
+  const resultsRefs = useRef<(HTMLDivElement | null)[]>(new Array(5).fill(null)); // Alterado para garantir 5 refs
   const rankingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -130,7 +129,6 @@ const CalculadoraApp: React.FC = () => {
 
   return (
     <div className="calculadora-container" ref={topRef}>
-      <NavBar items={['Home', 'Jogadores', 'Resultados', 'Ranking']} /> {/* Adicionando o NavBar aqui */}
       <Titulo texto="Sobe & Desce" />
       <div className="main-content">
         <JogadoresLista jogadores={jogadores} handleNomeChange={handleNomeChangeHandler} />
@@ -154,14 +152,6 @@ const CalculadoraApp: React.FC = () => {
           )}
         </div>
         <div id="ranking-resultados" ref={rankingRef}>
-          <div className="export-button-container">
-            {resultadosInseridos && (
-              <>
-                <ResetButton onReset={resetGame} />
-                <ExportButton jogadores={jogadoresClassificados} jogos={jogos} />
-              </>
-            )}
-          </div>
           <Ranking jogadoresClassificados={jogadoresClassificados} />
           <div className="export-button-container">
             {resultadosInseridos && (
