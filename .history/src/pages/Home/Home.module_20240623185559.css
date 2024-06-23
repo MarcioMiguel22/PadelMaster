@@ -1,0 +1,145 @@
+/* Reset some basic elements to ensure cross-browser consistency */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+.padelContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.centeredContent {
+  max-width: 90%;
+  width: 100%;
+}
+
+.titulo {
+  font-size: 3rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  background: linear-gradient(to right, #daefcd, #a8d5ba);
+  background-clip: text; /* Add the standard property */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.padelImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Limiting the image size for larger screens */
+@media (min-width: 768px) {
+  .padelImage {
+    max-width: 50%;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.enterButton {
+  background-image: url('../../assets/images/tennis-ball.png');
+  background-size: cover;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.enterButton:hover {
+  transform: scale(1.2);
+}
+
+/* Adjusting layout for mobile devices */
+@media (max-width: 768px) {
+  .padelContainer {
+    justify-content: flex-start;
+    padding-top: 20px;
+  }
+
+  .centeredContent {
+    margin-top: 80px;
+  }
+
+  .titulo {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+
+  .padelImage {
+    max-width: 80%;
+  }
+}
+/* Animação das bolas caindo */
+@keyframes fall {
+  0% {
+    top: -100px;
+    opacity: 1;
+  }
+  100% {
+    top: 100vh;
+    opacity: 0.5;
+  }
+}
+
+.tennisBall {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-image: url('../../assets/images/tennis-ball.png');
+  background-size: cover;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall1 {
+  0% {
+    top: -50px;
+    opacity: 1;
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+  }
+}
+
+.tennisBall:nth-child(odd) {
+  animation: fall1 6s linear infinite;
+}
+
+.tennisBall:nth-child(even) {
+  animation: fall1 5s linear infinite;
+}
