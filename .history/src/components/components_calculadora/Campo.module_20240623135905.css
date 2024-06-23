@@ -106,9 +106,8 @@
   }
 
   .field {
-    margin: 20px;
     width: auto;
-    min-width: 325px;
+    min-width: 50px;
     margin-bottom: 20px;
   }
 
@@ -129,7 +128,10 @@
     width: 100%;
   }
 
+  .team input.resultado-input {
 
+
+  }
 
 
 }

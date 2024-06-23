@@ -4,7 +4,7 @@
   padding: 40px;
   border-radius: 10px;
   box-shadow: var(--box-shadow);
-  width: calc(40%); /* Ajusta a largura para considerar o padding */
+  width: calc(25% - 50px); /* Ajusta a largura para considerar o padding */
   min-width: 28px;
   margin: 0px; /* Adiciona margem para espaçamento extra */
   cursor: default; /* Garante que o cursor seja padrão para os campos */
@@ -106,10 +106,16 @@
   }
 
   .field {
-    margin: 20px;
-    width: auto;
-    min-width: 325px;
-    margin-bottom: 20px;
+    background: linear-gradient(to right, #c3e8ad, #a8d5ba);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    width: calc(100px); /* Ajusta a largura para considerar o padding */
+    min-width: 28px;
+    margin: 0px; /* Adiciona margem para espaçamento extra */
+    cursor: default; /* Garante que o cursor seja padrão para os campos */
+    overflow: hidden; /* Evita que o conteúdo transborde */
+    box-sizing: border-box; /* Inclui padding e bordas na largura total */
   }
 
   .campos {
@@ -129,7 +135,10 @@
     width: 100%;
   }
 
+  .team input.resultado-input {
 
+
+  }
 
 
 }

@@ -4,9 +4,9 @@
   padding: 40px;
   border-radius: 10px;
   box-shadow: var(--box-shadow);
-  width: calc(40%); /* Ajusta a largura para considerar o padding */
+  width: calc(25% - 50px); /* Ajusta a largura para considerar o padding */
   min-width: 28px;
-  margin: 0px; /* Adiciona margem para espaçamento extra */
+  margin: 25px; /* Adiciona margem para espaçamento extra */
   cursor: default; /* Garante que o cursor seja padrão para os campos */
   overflow: hidden; /* Evita que o conteúdo transborde */
   box-sizing: border-box; /* Inclui padding e bordas na largura total */
@@ -15,7 +15,6 @@
 .field h2 {
   margin-top: 0;
   cursor: default; /* Garantir que o cursor seja padrão para títulos */
-  margin-bottom: 25px;
 }
 .field ul {
   list-style-type: none;
@@ -54,6 +53,7 @@
 }
 .trocar-jogadores-button {
   margin-top: 16px;
+
 }
 .team {
   list-style-type: none;
@@ -94,7 +94,53 @@
   cursor: text; /* Garantir que o cursor seja de texto para inputs */
 }
 
+.ranking-container {
+  margin-top: 40px;
+  text-align: center; /* Centraliza o conteúdo dentro do contêiner */
+}
 
+.ranking-container h2 {
+  margin-bottom: 10px;
+  cursor: default; /* Garantir que o cursor seja padrão para títulos */
+}
+
+.ranking-container ul {
+  list-style-type: none;
+  padding: 0;
+  cursor: default; /* Garantir que o cursor seja padrão para listas */
+}
+
+.ranking-container li {
+  margin: 5px 0;
+  cursor: default; /* Garantir que o cursor seja padrão para itens de lista */
+}
+
+.export-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.export-button {
+  background-color: #4CAF50; /* Verde */
+  border: none;
+  color: white;
+  padding: 10px 20px; /* Reduzido o padding para tornar o botão menor */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px; /* Reduzido o tamanho da fonte */
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px; /* Cantos arredondados */
+  transition-duration: 0.4s;
+}
+
+.export-button:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
 
 /* Media Queries for Mobile */
 @media screen and (max-width: 767px) {
@@ -106,9 +152,7 @@
   }
 
   .field {
-    margin: 20px;
-    width: auto;
-    min-width: 325px;
+    width: 100%;
     margin-bottom: 20px;
   }
 
@@ -125,11 +169,14 @@
 
   .team div {
     flex-direction: column;
-
+    align-items: flex-start;
     width: 100%;
   }
 
+  .team input.resultado-input {
 
+
+  }
 
 
 }
