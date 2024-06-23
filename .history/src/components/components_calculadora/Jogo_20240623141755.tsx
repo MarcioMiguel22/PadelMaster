@@ -22,11 +22,9 @@ const Jogo: React.FC<JogoProps> = ({
   jogadoresSelecionados,
   trocarJogadores,
 }) => (
-  <div className="jogo">
-    <div className={styles.container}>
-      <h2 className={styles.header}>Resultados Jogo {jogoIndex + 1}</h2>
-    </div>
-    <div className="campos">
+  <div className={styles.jogo}>
+    <h2>Resultados Jogo {jogoIndex + 1}</h2>
+    <div className={styles.campos}>
       {jogo.map(campo => (
         <Campo
           key={campo.id}

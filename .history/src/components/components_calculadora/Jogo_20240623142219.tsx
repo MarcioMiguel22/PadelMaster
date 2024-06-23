@@ -23,9 +23,7 @@ const Jogo: React.FC<JogoProps> = ({
   trocarJogadores,
 }) => (
   <div className="jogo">
-    <div className={styles.container}>
-      <h2 className={styles.header}>Resultados Jogo {jogoIndex + 1}</h2>
-    </div>
+    <h2 className={styles.header}>Resultados Jogo {jogoIndex + 1}</h2>
     <div className="campos">
       {jogo.map(campo => (
         <Campo
