@@ -1,0 +1,50 @@
+/* src/components/Footer.module.css */
+.footer {
+  width: 100%;
+  background: linear-gradient(to right, #daefcd, #a8d5ba);
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  display: inline;
+}
+
+.menu li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: rgb(5, 5, 5);
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.menu li a:hover {
+  color: #333;
+}
+
+p {
+  margin: 0;
+  font-size: 16px;
+  color: rgb(5, 5, 5);
+  font-weight: bold;
+}
