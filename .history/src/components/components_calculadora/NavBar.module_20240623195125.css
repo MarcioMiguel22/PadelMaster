@@ -58,5 +58,30 @@
     display: none;
   }
 
+  .navbar {
+    height: auto;
+    width: ;
+    flex-direction: column;
+    height: auto;
+  }
 
+  .logo {
+    display: flex;
+    justify-content: center; /* Centraliza os itens horizontalmente */
+  }
+
+
+  .tennisBall {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(to right, #daefcd, #a8d5ba);
+    border-radius: 50%;
+    padding: 1px;
+    transition: transform 1s ease-in-out;
+  }
+
+  .title {
+    font-size: 14px;
+    text-align: center;
+  }
 }

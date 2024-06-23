@@ -58,5 +58,23 @@
     display: none;
   }
 
+  .navbar {
+    flex-direction: column;
+    height: auto;
+  }
 
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+
+  .tennisBall {
+    margin-bottom: 10px;
+  }
+
+  .title {
+    font-size: 14px;
+    text-align: center;
+  }
 }
