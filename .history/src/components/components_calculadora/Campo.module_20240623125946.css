@@ -1,15 +1,38 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.distribute-button:hover, .scroll-to-top:hover {
+  background-color: var(--main-hover-color);
+}
+
+.jogo {
+  margin-bottom: 40px;
+}
+
 .field {
   background: linear-gradient(to right, #c3e8ad, #a8d5ba);
   padding: 40px;
   border-radius: 10px;
   box-shadow: var(--box-shadow);
-  width: calc(25% - 50px); /* Ajusta a largura para considerar o padding */
+  width: 25%;
   min-width: 28px;
-  margin: 25px; /* Adiciona margem para espaçamento extra */
-  cursor: default; /* Garante que o cursor seja padrão para os campos */
-  overflow: hidden; /* Evita que o conteúdo transborde */
-  box-sizing: border-box; /* Inclui padding e bordas na largura total */
+  margin: 25px; /* Added margin for extra spacing */
+  cursor: default; /* Garantir que o cursor seja padrão para os campos */
 }
 
 .field h2 {
@@ -174,9 +197,25 @@
   }
 
   .team input.resultado-input {
-
-
+    margin-left: 80px;
+    margin-top: 25px;
   }
 
+  .ranking-container {
+    flex-flow: column;
+    margin-top: 40px;
+  }
 
+  .ranking-container h2 {
+    margin-bottom: 10px;
+  }
+
+  .ranking-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .ranking-container li {
+    margin: 5px 0;
+  }
 }
