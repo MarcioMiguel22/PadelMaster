@@ -14,7 +14,6 @@ import { todosResultadosInseridos } from '../../utils/resultUtils';
 import Titulo from '../../components/components_calculadora/Titulo';
 import NextGameButton from '../../components/components_calculadora/NextGameButton';
 import NavBar from '../../components/components_calculadora/NavBar';
-import Background from '../../components/components_calculadora/Background'; // Certifique-se do caminho correto
 
 const jogadoresIniciais: Jogador[] = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
@@ -37,8 +36,6 @@ const CalculadoraApp: React.FC = () => {
   const rankingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Rola para o topo quando o componente é montado
-
     const savedJogadores = localStorage.getItem('jogadores');
     const savedJogos = localStorage.getItem('jogos');
     if (savedJogadores) {
@@ -133,7 +130,6 @@ const CalculadoraApp: React.FC = () => {
 
   return (
     <div className="calculadora-container" ref={topRef}>
-      <Background />
       <NavBar items={['Home', 'Jogadores', 'Resultados', 'Ranking', 'Sobre']} /> {/* Adicionando o NavBar aqui */}
       <Titulo texto="Sobe & Desce" />
       <div className="main-content">

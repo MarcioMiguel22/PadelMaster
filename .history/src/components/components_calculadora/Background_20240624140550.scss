@@ -1,0 +1,20 @@
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(to right, #fafbf9, #e8f3e1);
+  overflow: hidden;
+}
+
+.strip {
+  position: absolute;
+  width: 200vw; /* Large enough to cover the screen diagonally */
+  height: 50px; /* Adjust the height of the strips as needed */
+  background: linear-gradient(to right, hsl(120, 72%, 89%), hsl(120, 11%, 75%)); /* Initial color */
+  opacity: 0.7;
+  transform-origin: left center;
+  transition: transform 0.3s, top 0.3s, left 0.3s, background 0.3s;
+}

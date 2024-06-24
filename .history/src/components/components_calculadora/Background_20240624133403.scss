@@ -1,0 +1,21 @@
+/* src/components/Background.scss */
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pentagon {
+  width: 200px;
+  height: 200px;
+  background: lightgreen; /* Alterado para verde claro */
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  transition: width 0.3s, height 0.3s;
+}

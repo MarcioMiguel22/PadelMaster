@@ -106,14 +106,20 @@ body {
   }
 }
 /* src/pages/Home.module.css */
-.invertedTitle {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%) rotateY(180deg);
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
 }
 
-
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .invertedTitle {
   position: absolute;

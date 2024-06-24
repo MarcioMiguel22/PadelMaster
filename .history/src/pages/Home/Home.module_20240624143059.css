@@ -105,19 +105,3 @@ body {
     max-width: 80%;
   }
 }
-/* src/pages/Home.module.css */
-.invertedTitle {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%) rotateY(180deg);
-}
-
-
-
-.invertedTitle {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%) rotateY(180deg);
-}

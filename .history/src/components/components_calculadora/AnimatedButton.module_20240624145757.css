@@ -1,0 +1,21 @@
+/* src/components/AnimatedButton.module.css */
+.animatedButton {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.clicked {
+  animation: spin 1s forwards;
+}
+
+/* Define a animação de rotação em torno do centro da bola */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    transform-origin: 50% 50%; /* Define a origem da transformação como o centro do componente */
+  }
+  100% {
+    transform: rotate(360deg);
+    transform-origin: 50% 50%; /* Mantém a origem da transformação no centro */
+  }
+}
