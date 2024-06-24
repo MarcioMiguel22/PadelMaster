@@ -36,8 +36,6 @@ const CalculadoraApp: React.FC = () => {
   const rankingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Rola para o topo quando o componente é montado
-
     const savedJogadores = localStorage.getItem('jogadores');
     const savedJogos = localStorage.getItem('jogos');
     if (savedJogadores) {
