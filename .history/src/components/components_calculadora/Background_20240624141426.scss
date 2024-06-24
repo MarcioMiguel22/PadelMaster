@@ -1,0 +1,33 @@
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(to right, #e0eafc, #cfdef3); /* New, simpler gradient */
+  overflow: hidden;
+}
+
+.strip {
+  position: absolute;
+  width: 200vw; /* Large enough to cover the screen diagonally */
+  height: 80px; /* Increased height for a more noticeable effect */
+  background: linear-gradient(to right, hsl(210, 45%, 96%), hsl(99, 56%, 56%)); /* Initial color */
+  opacity: 0.5;
+  transform-origin: left center;
+  transition: transform 0.3s, top 0.3s, left 0.3s, background 0.3s;
+  animation: moveRight 10s linear infinite;
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(0) rotate(5deg);
+  }
+  50% {
+    transform: translateX(10px) rotate(5deg);
+  }
+  100% {
+    transform: translateX(0) rotate(5deg);
+  }
+}

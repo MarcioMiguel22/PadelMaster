@@ -1,0 +1,15 @@
+/* src/components/AnimatedButton.module.css */
+.animatedButton {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.clicked {
+  animation: spin 1s forwards;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

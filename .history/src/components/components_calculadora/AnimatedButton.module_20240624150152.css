@@ -1,0 +1,25 @@
+/* src/components/AnimatedButton.module.css */
+.animatedButton {
+  display: inline-block;
+  cursor: pointer;
+  transition: all 1s ease-in-out;
+}
+
+.clicked {
+  animation: spinAndStretch 2s forwards;
+}
+
+@keyframes spinAndStretch {
+  0% {
+    transform: rotate(0deg);
+    transform-origin: center center;
+  }
+  50% {
+    transform: rotate(180deg) scaleY(10); /* Gira 180 graus e estica verticalmente */
+    transform-origin: center center;
+  }
+  100% {
+    transform: rotate(360deg) scaleY(1); /* Completa a rotação e retorna ao tamanho original */
+    transform-origin: center center;
+  }
+}

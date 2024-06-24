@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './Home.module.css';
 import AnimatedButton from '../../components/components_calculadora/AnimatedButton';
 import BackgroundHome from '../../components/components_calculadora/Background_home';
-import { AnimationProvider } from '../../components/components_calculadora/AnimationContext'; // Atualize o caminho conforme necessário
+import { AnimationProvider } from '../../components/components_calculadora/AnimationContext';
 
 const Home: React.FC = () => {
   return (

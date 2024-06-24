@@ -1,0 +1,33 @@
+/* src/components/AnimatedButton.module.css */
+.animatedButton {
+  display: inline-block;
+  cursor: pointer;
+  transition: all 1s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+.clicked {
+  animation: transformToStrip 2s forwards;
+}
+
+@keyframes transformToStrip {
+  0% {
+    transform: rotate(0deg);
+    width: auto;
+    height: auto;
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(180deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotate(360deg);
+    width: 200vw;
+    height: 80px;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+  }
+}
