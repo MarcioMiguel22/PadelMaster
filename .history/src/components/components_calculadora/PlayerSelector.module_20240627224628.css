@@ -2,17 +2,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 250px;
+  width: 320px; /* Aumentar a largura para acomodar melhor 12 jogadores */
   padding: 10px;
-  background: linear-gradient(to right, #daefcd, #a8d5ba);
+  background-color: #009688;
   border-radius: 25px;
+  position: relative;
   cursor: pointer;
   user-select: none;
 }
 
 .bolaContainer {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
 }
 
 .bola {
@@ -25,17 +29,28 @@
   transition: left 0.3s ease;
 }
 
-.manual {
+.option4 {
   left: 10px;
 }
 
-.automatic {
+.option8 {
+  left: calc(50% - 20px); /* Centraliza a bola */
+}
+
+.option12 {
   left: calc(100% - 50px); /* 100% width - bola width - padding */
 }
 
+.options {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .optionText {
-  font-size: 16px;
-  color: rgb(0, 0, 0);
-  margin-left: 10px;
+  font-size: 14px; /* Ajustar o tamanho da fonte para melhor ajuste */
+  color: white;
+  margin: 0 10px;
   white-space: nowrap;
+  cursor: pointer;
 }
