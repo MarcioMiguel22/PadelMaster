@@ -1,0 +1,42 @@
+.selectorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  padding: 10px;
+  background-color: #009688;
+  border-radius: 25px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.bolaContainer {
+  position: relative;
+  width: 100%;
+}
+
+.bola {
+  width: 40px;
+  height: 40px;
+  background-color: #ffc107;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.3s ease;
+}
+
+.manual {
+  left: 10px;
+}
+
+.automatic {
+  left: calc(100% - 50px); /* 100% width - bola width - padding */
+}
+
+.optionText {
+  font-size: 16px;
+  color: white;
+  margin-left: 10px;
+  white-space: nowrap;
+}

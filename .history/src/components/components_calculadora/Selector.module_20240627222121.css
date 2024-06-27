@@ -1,0 +1,27 @@
+.selectorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 20px;
+}
+
+.label {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.select {
+  width: 200px;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.select:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
