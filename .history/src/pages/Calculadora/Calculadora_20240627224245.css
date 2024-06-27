@@ -261,19 +261,10 @@ body {
 }
 .selectors-container {
   display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-bottom: 20px;
+  gap: 20px; /* Espaçamento entre os seletores */
+  justify-content: center; /* Centraliza os seletores horizontalmente */
+  margin-bottom: 20px; /* Espaçamento abaixo dos seletores */
 }
-
-/* Media query para telas menores */
-@media (max-width: 600px) {
-  .selectors-container {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
 
 /* Media Queries for Mobile */
 @media screen and (max-width: 767px) {

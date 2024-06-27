@@ -1,0 +1,56 @@
+.selectorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 320px; /* Aumentar a largura para acomodar melhor 12 jogadores */
+  padding: 10px;
+  background-color: #009688;
+  border-radius: 25px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.bolaContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bola {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.3s ease;
+}
+
+.option4 {
+  left: 10px;
+}
+
+.option8 {
+  left: calc(50% - 20px); /* Centraliza a bola */
+}
+
+.option12 {
+  left: calc(100% - 50px); /* 100% width - bola width - padding */
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.optionText {
+  font-size: 14px; /* Ajustar o tamanho da fonte para melhor ajuste */
+  color: white;
+  margin: 0 10px;
+  white-space: nowrap;
+  cursor: pointer;
+}

@@ -142,10 +142,8 @@ const CalculadoraApp: React.FC = () => {
       <Titulo texto="Sobe & Desce" />
       <div className="main-content">
 
-      <div className="selectors-container">
-          <Selector /> {/* Adicionando o Selector aqui */}
-          <PlayerSelector /> {/* Adicionando o PlayerSelector aqui */}
-        </div>
+      <Selector /> {/* Adicionando o Selector aqui */}
+      <PlayerSelector /> {/* Adicionando o PlayerSelector aqui */}
         <JogadoresLista jogadores={jogadores} handleNomeChange={handleNomeChangeHandler} />
         <div className="fields-container">
           {showDistributeButton && <DistributeButton onClick={distribuirJogadores} />}

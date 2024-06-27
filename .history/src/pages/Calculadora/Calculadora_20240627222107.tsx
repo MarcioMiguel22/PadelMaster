@@ -16,9 +16,6 @@ import NextGameButton from '../../components/components_calculadora/NextGameButt
 import NavBar from '../../components/components_calculadora/NavBar';
 import Background from '../../components/components_calculadora/Background';
 import Selector from '../../components/components_calculadora/Selector';
-import PlayerSelector from '../../components/components_calculadora/PlayerSelector';
-
-
 
 const jogadoresIniciais: Jogador[] = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
@@ -141,11 +138,7 @@ const CalculadoraApp: React.FC = () => {
       <NavBar items={['Home', 'Jogadores', 'Resultados', 'Ranking', 'Sobre']} /> {/* Adicionando o NavBar aqui */}
       <Titulo texto="Sobe & Desce" />
       <div className="main-content">
-
-      <div className="selectors-container">
-          <Selector /> {/* Adicionando o Selector aqui */}
-          <PlayerSelector /> {/* Adicionando o PlayerSelector aqui */}
-        </div>
+        <Selector /> {/* Adicionando o Selector aqui */}
         <JogadoresLista jogadores={jogadores} handleNomeChange={handleNomeChangeHandler} />
         <div className="fields-container">
           {showDistributeButton && <DistributeButton onClick={distribuirJogadores} />}
