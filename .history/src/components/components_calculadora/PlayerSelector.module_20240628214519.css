@@ -1,0 +1,39 @@
+.selectorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  padding: 10px;
+  background: linear-gradient(to right, #daefcd, #a8d5ba);
+  border-radius: 25px;
+  position: relative;
+  user-select: none;
+}
+
+.bolaContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.bola {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.optionText {
+  font-size: 14px;
+  color: rgb(6, 6, 6);
+  margin-left: 10px;
+  white-space: nowrap;
+  cursor: default;
+}

@@ -1,0 +1,33 @@
+.selectorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around; /* Space out the options evenly */
+  width: 100%; /* Full width to accommodate all options */
+  padding: 20px; /* Add some padding */
+  background: linear-gradient(to right, #daefcd, #a8d5ba);
+  border-radius: 25px;
+  user-select: none;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Add a hover effect */
+}
+
+.option:hover {
+  transform: scale(1.1); /* Scale up on hover */
+}
+
+.bola {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px; /* Space between the image and text */
+}
+
+.optionText {
+  font-size: 16px; /* Adjust font size */
+  color: #060606; /* Text color */
+}
