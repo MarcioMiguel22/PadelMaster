@@ -13,20 +13,12 @@ const Selector: React.FC<SelectorProps> = ({ onSaveGameInfo }) => {
 
   const toggleOption = () => {
     setSelectedOption(prevOption => (prevOption === 'manual' ? 'automatic' : 'manual'));
-    setShowPopup(true); // Mostrar o popup ao alternar a opção
+    setShowPopup(true); // Show the popup when the option is toggled
   };
 
   const handleSave = (data: { clube: string; local: string; organizador: string; horario: string }) => {
-    onSaveGameInfo(data); // Passar os dados para o componente pai
-    setShowPopup(false); // Fechar o popup
-  };
-
-  const handleClose = () => {
-    setShowPopup(false); // Fechar o popup
-  };
-
-  const handleBack = () => {
-    window.history.back(); // Simular o comportamento de voltar ao clicar no botão "Fechar"
+    onSaveGameInfo(data); // Pass the data to the parent component
+    setShowPopup(false);
   };
 
   return (
@@ -44,8 +36,7 @@ const Selector: React.FC<SelectorProps> = ({ onSaveGameInfo }) => {
       {showPopup && (
         <PopupForm
           onSave={handleSave}
-          onClose={handleClose}
-          onBack={handleBack}
+          onClose={() => setShowPopup(false)}
         />
       )}
     </div>

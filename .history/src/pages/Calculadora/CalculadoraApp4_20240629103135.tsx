@@ -1,24 +1,24 @@
-import React, { useState, useEffect, useRef } from 'react';
-import './CalculadoraApp12.css';
-import JogadoresLista from '../../components/components_calculadora/JogadoresLista';
-import Jogo from '../../components/components_calculadora/Jogo';
-import Ranking from '../../components/components_calculadora/Ranking';
-import { Jogador, Campo as CampoType } from '../../utils/types/types';
-import ScrollToTopButton from '../../components/components_calculadora/ScrollToTopButton';
-import DistributeButton from '../../components/components_calculadora/DistributeButton';
-import ExportButton from '../../components/components_calculadora/ExportButton';
-import ResetButton from '../../components/components_calculadora/ResetButton';
-import { criarTimes, criarCampos, atualizarRanking, trocarJogadores, iniciarProximoJogo } from '../../utils/gameLogic';
+import React, { useState, useEffect } from 'react';
+import './CalculadoraApp4.css';
+import JogadoresLista4 from '../../components/components_calculadora/JogadoresLista4';
+import Jogo4 from '../../components/components_calculadora/Jogo4';
+import Ranking4 from '../../components/components_calculadora/Ranking4';
+import ScrollToTopButton4 from '../../components/components_calculadora/ScrollToTopButton4';
+import DistributeButton4 from '../../components/components_calculadora/DistributeButton4';
+import ExportButton4 from '../../components/components_calculadora/ExportButton4';
+import ResetButton4 from '../../components/components_calculadora/ResetButton4';
+import NextGameButton4 from '../../components/components_calculadora/NextGameButton4';
+import { criarTimes4, criarCampos4, atualizarRanking4, trocarJogadores4, iniciarProximoJogo4 } from '../../utils/utils4';
 import { handleNomeChange, selecionarJogador } from '../../utils/playerUtils';
-import { todosResultadosInseridos } from '../../utils/resultUtils';
+import { todosResultadosInseridos4 } from '../../utils/utils4';
 import Titulo from '../../components/components_calculadora/Titulo';
-import NextGameButton from '../../components/components_calculadora/NextGameButton';
 import NavBar from '../../components/components_calculadora/NavBar';
 import Background from '../../components/components_calculadora/Background';
 import Selector from '../../components/components_calculadora/Selector';
 import PlayerSelector from '../../components/components_calculadora/PlayerSelector';
+import { Jogador, Campo as CampoType } from '../../utils/types/types';
 
-const jogadoresIniciais: Jogador[] = Array.from({ length: 12 }, (_, i) => ({
+const jogadoresIniciais: Jogador[] = Array.from({ length: 4 }, (_, i) => ({
   id: i + 1,
   nome: `Jogador ${i + 1}`,
   vitorias: 0,
@@ -28,22 +28,17 @@ const jogadoresIniciais: Jogador[] = Array.from({ length: 12 }, (_, i) => ({
   totalPontos: 0,
 }));
 
-const CalculadoraApp: React.FC = () => {
+const CalculadoraApp4: React.FC = () => {
   const [jogadores, setJogadores] = useState<Jogador[]>(jogadoresIniciais);
   const [jogos, setJogos] = useState<CampoType[][]>([]);
   const [showDistributeButton, setShowDistributeButton] = useState(true);
   const [jogadoresSelecionados, setJogadoresSelecionados] = useState<Jogador[]>([]);
-  const [gameInfo, setGameInfo] = useState<{ clube: string; local: string; organizador: string; horario: string } | null>(null);
-
-  const topRef = useRef<HTMLDivElement>(null);
-  const resultsRefs = useRef<(HTMLDivElement | null)[]>(new Array(5).fill(null));
-  const rankingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Rola para o topo quando o componente é montado
+    window.scrollTo(0, 0);
 
-    const savedJogadores = localStorage.getItem('jogadores');
-    const savedJogos = localStorage.getItem('jogos');
+    const savedJogadores = localStorage.getItem('jogadores4');
+    const savedJogos = localStorage.getItem('jogos4');
     if (savedJogadores) {
       setJogadores(JSON.parse(savedJogadores));
     }
@@ -53,11 +48,11 @@ const CalculadoraApp: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('jogadores', JSON.stringify(jogadores));
+    localStorage.setItem('jogadores4', JSON.stringify(jogadores));
   }, [jogadores]);
 
   useEffect(() => {
-    localStorage.setItem('jogos', JSON.stringify(jogos));
+    localStorage.setItem('jogos4', JSON.stringify(jogos));
   }, [jogos]);
 
   const handleNomeChangeHandler = (id: number, novoNome: string) => {
@@ -81,26 +76,26 @@ const CalculadoraApp: React.FC = () => {
         : jogo
     );
     setJogos(novosJogos);
-    setJogadores(atualizarRanking(jogadores, novosJogos));
+    setJogadores(atualizarRanking4(jogadores, novosJogos));
   };
 
   const distribuirJogadores = () => {
-    const times = criarTimes(jogadores);
-    const novosCampos = criarCampos(times);
+    const times = criarTimes4(jogadores);
+    const novosCampos = criarCampos4(times);
     const novosJogos = [novosCampos];
     setJogos(novosJogos);
-    setJogadores(atualizarRanking(jogadores, novosJogos));
+    setJogadores(atualizarRanking4(jogadores, novosJogos));
   };
 
   const handleTrocarJogadores = (campoId: number) => {
-    const novosJogos = trocarJogadores(jogos, campoId);
+    const novosJogos = trocarJogadores4(jogos, campoId);
     setJogos(novosJogos);
   };
 
   const iniciarProximoJogoHandler = () => {
-    const novosJogos = iniciarProximoJogo(jogos);
+    const novosJogos = iniciarProximoJogo4(jogos);
     setJogos(novosJogos);
-    setJogadores(atualizarRanking(jogadores, novosJogos));
+    setJogadores(atualizarRanking4(jogadores, novosJogos));
 
     if (jogos.length === 1) {
       setShowDistributeButton(false);
@@ -112,8 +107,8 @@ const CalculadoraApp: React.FC = () => {
     setJogos([]);
     setShowDistributeButton(true);
     setJogadoresSelecionados([]);
-    localStorage.removeItem('jogadores');
-    localStorage.removeItem('jogos');
+    localStorage.removeItem('jogadores4');
+    localStorage.removeItem('jogos4');
   };
 
   const getTeamClass = (campo: CampoType, timeIndex: number): string => {
@@ -130,26 +125,26 @@ const CalculadoraApp: React.FC = () => {
     setJogadoresSelecionados(jogadoresAtualizados);
   };
 
-  const resultadosInseridos = todosResultadosInseridos(jogos);
+  const resultadosInseridos = todosResultadosInseridos4(jogos);
 
-  const jogadoresClassificados = atualizarRanking(jogadores, jogos);
+  const jogadoresClassificados = atualizarRanking4(jogadores, jogos);
 
   return (
-    <div className="calculadora-container" ref={topRef}>
+    <div className="calculadora-container">
       <Background />
       <NavBar items={['Home', 'Jogadores', 'Resultados', 'Ranking', 'Sobre']} />
       <Titulo texto="Sobe & Desce" />
       <div className="main-content">
         <div className="selectors-container">
-          <Selector onSaveGameInfo={setGameInfo} /> {/* Pass onSaveGameInfo */}
+          <Selector />
           <PlayerSelector />
         </div>
-        <JogadoresLista jogadores={jogadores} handleNomeChange={handleNomeChangeHandler} />
+        <JogadoresLista4 jogadores={jogadores} handleNomeChange={handleNomeChangeHandler} />
         <div className="fields-container">
-          {showDistributeButton && <DistributeButton onClick={distribuirJogadores} />}
+          {showDistributeButton && <DistributeButton4 onClick={distribuirJogadores} />}
           {jogos.map((jogo, jogoIndex) => (
-            <div ref={(el) => resultsRefs.current[jogoIndex] = el} key={jogoIndex}>
-              <Jogo
+            <div key={jogoIndex}>
+              <Jogo4
                 jogo={jogo}
                 jogoIndex={jogoIndex}
                 handleResultadoChange={handleResultadoChange}
@@ -161,38 +156,32 @@ const CalculadoraApp: React.FC = () => {
             </div>
           ))}
           {jogos.length > 0 && jogos.length < 5 && (
-            <NextGameButton jogoIndex={jogos.length} onClick={iniciarProximoJogoHandler} />
+            <NextGameButton4 jogoIndex={jogos.length} onClick={iniciarProximoJogoHandler} />
           )}
         </div>
-        <div id="ranking-resultados" ref={rankingRef}>
+        <div id="ranking-resultados">
           <div className="export-button-container">
             {resultadosInseridos && (
               <>
-                <ResetButton onReset={resetGame} />
-                <ExportButton jogadores={jogadoresClassificados} jogos={jogos} gameInfo={gameInfo} /> {/* Pass gameInfo */}
+                <ResetButton4 onReset={resetGame} />
+                <ExportButton4 jogadores={jogadoresClassificados} jogos={jogos} />
               </>
             )}
           </div>
-          <Ranking jogadoresClassificados={jogadoresClassificados} />
+          <Ranking4 jogadoresClassificados={jogadoresClassificados} />
           <div className="export-button-container">
             {resultadosInseridos && (
               <>
-                <ResetButton onReset={resetGame} />
-                <ExportButton jogadores={jogadoresClassificados} jogos={jogos} gameInfo={gameInfo} /> {/* Pass gameInfo */}
+                <ResetButton4 onReset={resetGame} />
+                <ExportButton4 jogadores={jogadoresClassificados} jogos={jogos} />
               </>
             )}
           </div>
         </div>
-        <ScrollToTopButton
-          refs={[
-            topRef,
-            ...resultsRefs.current.filter(ref => ref !== null),
-            rankingRef,
-          ]}
-        />
+        <ScrollToTopButton4 refs={[]} />
       </div>
     </div>
   );
 };
 
-export default CalculadoraApp;
+export default CalculadoraApp4;

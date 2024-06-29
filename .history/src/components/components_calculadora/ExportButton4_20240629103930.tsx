@@ -7,29 +7,16 @@ import styles from './ExportButton.module.css';
 interface ExportButtonProps {
   jogadores: Jogador[];
   jogos: CampoType[][];
-  gameInfo: { clube: string; local: string; organizador: string; horario: string } | null;
 }
 
-const ExportButton8: React.FC<ExportButtonProps> = ({ jogadores, jogos, gameInfo }) => {
+const ExportButton4: React.FC<ExportButtonProps> = ({ jogadores, jogos }) => {
   const exportAndSendPDF = async () => {
     const doc = new jsPDF();
 
     // Definir a cor do texto para verde
     doc.setTextColor(76, 175, 80);
 
-    if (gameInfo) {
-      // Adicionar Informações do Jogo
-      doc.setFontSize(18);
-      doc.text('Informações do Jogo', 20, 20);
-      doc.setFontSize(14);
-      doc.text(`Clube: ${gameInfo.clube}`, 20, 30);
-      doc.text(`Local: ${gameInfo.local}`, 20, 40);
-      doc.text(`Organizador: ${gameInfo.organizador}`, 20, 50);
-      doc.text(`Horário: ${gameInfo.horario}`, 20, 60);
-    }
-
     // Adicionar Ranking
-    doc.addPage();
     doc.setFontSize(18);
     doc.text('Ranking dos Jogadores', 20, 20);
     const rankingData = jogadores.map((jogador, index) => [
@@ -73,26 +60,21 @@ const ExportButton8: React.FC<ExportButtonProps> = ({ jogadores, jogos, gameInfo
       startY = 30;
     });
 
-    // Obter data no formato dd-mm-yyyy
+    // Salvar PDF localmente
+    doc.save('PadelMaster_Data.pdf');
+
+    // Obter data no formato dd/mm/yyyy
     const getFormattedDate = () => {
       const date = new Date();
       const day = String(date.getDate()).padStart(2, '0');
       const month = String(date.getMonth() + 1).padStart(2, '0');
       const year = date.getFullYear();
-      return `${day}-${month}-${year}`;
+      return `${day}/${month}/${year}`;
     };
-
-    // Salvar PDF localmente com o nome formatado
-    const formattedDate = getFormattedDate();
-    doc.save(`PadelMaster_${formattedDate}.pdf`);
 
     // Enviar dados para o backend
     const data = {
-      data: new Date().toLocaleDateString('pt-BR', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
-      }),
+      data: getFormattedDate(),
       jogos: jogos.map((jogo, jogoIndex) => ({
         jogo: `Jogo ${jogoIndex + 1}`,
         jogadores: jogo.flatMap(campo =>
@@ -100,6 +82,7 @@ const ExportButton8: React.FC<ExportButtonProps> = ({ jogadores, jogos, gameInfo
             time.jogadores.map((jogador, jogadorIndex) => ({
               nome: jogador.nome,
               vitorias: jogador.vitorias,
+              derrotas: jogador.derrotas,
               pontos: jogador.pontos,
               pontosPerdidos: jogador.pontosPerdidos,
               totalPontos: jogador.totalPontos,
@@ -138,4 +121,4 @@ const ExportButton8: React.FC<ExportButtonProps> = ({ jogadores, jogos, gameInfo
   );
 };
 
-export default ExportButton8;
+export default ExportButton4;

@@ -1,32 +1,20 @@
 import React, { useState } from 'react';
 import styles from './Selector.module.css';
 import tennisBall from '../../assets/images/tennis-ball.png';
-import PopupForm from './PopupForm';
+import PopupForm from './PopupForm'; // Import the PopupForm
 
-interface SelectorProps {
-  onSaveGameInfo: (data: { clube: string; local: string; organizador: string; horario: string }) => void;
-}
-
-const Selector: React.FC<SelectorProps> = ({ onSaveGameInfo }) => {
+const Selector: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<string>('manual');
   const [showPopup, setShowPopup] = useState<boolean>(false);
+  const [gameInfo, setGameInfo] = useState<{ clube: string; local: string; organizador: string; horario: string } | null>(null);
 
   const toggleOption = () => {
     setSelectedOption(prevOption => (prevOption === 'manual' ? 'automatic' : 'manual'));
-    setShowPopup(true); // Mostrar o popup ao alternar a opção
+    setShowPopup(true); // Show the popup when the option is toggled
   };
 
   const handleSave = (data: { clube: string; local: string; organizador: string; horario: string }) => {
-    onSaveGameInfo(data); // Passar os dados para o componente pai
-    setShowPopup(false); // Fechar o popup
-  };
-
-  const handleClose = () => {
-    setShowPopup(false); // Fechar o popup
-  };
-
-  const handleBack = () => {
-    window.history.back(); // Simular o comportamento de voltar ao clicar no botão "Fechar"
+    setGameInfo(data);
   };
 
   return (
@@ -44,8 +32,7 @@ const Selector: React.FC<SelectorProps> = ({ onSaveGameInfo }) => {
       {showPopup && (
         <PopupForm
           onSave={handleSave}
-          onClose={handleClose}
-          onBack={handleBack}
+          onClose={() => setShowPopup(false)}
         />
       )}
     </div>

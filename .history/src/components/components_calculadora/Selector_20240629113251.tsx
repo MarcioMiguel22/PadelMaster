@@ -25,10 +25,6 @@ const Selector: React.FC<SelectorProps> = ({ onSaveGameInfo }) => {
     setShowPopup(false); // Fechar o popup
   };
 
-  const handleBack = () => {
-    window.history.back(); // Simular o comportamento de voltar ao clicar no botão "Fechar"
-  };
-
   return (
     <div className={styles.selectorContainer} onClick={toggleOption}>
       <div className={styles.bolaContainer}>
@@ -45,7 +41,6 @@ const Selector: React.FC<SelectorProps> = ({ onSaveGameInfo }) => {
         <PopupForm
           onSave={handleSave}
           onClose={handleClose}
-          onBack={handleBack}
         />
       )}
     </div>
