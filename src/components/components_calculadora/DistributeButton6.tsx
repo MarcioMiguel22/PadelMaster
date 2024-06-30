@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import tennisBall from '../../assets/images/tennis-ball.png';
 import styles from './DistributeButton.module.css';
 
-const DistributeButton8: React.FC<{ onClick: () => void }> = ({ onClick }) => {
+const DistributeButton6: React.FC<{ onClick: () => void }> = ({ onClick }) => {
   const [isRotating, setIsRotating] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -40,4 +40,4 @@ const DistributeButton8: React.FC<{ onClick: () => void }> = ({ onClick }) => {
   );
 };
 
-export default DistributeButton8;
+export default DistributeButton6;
