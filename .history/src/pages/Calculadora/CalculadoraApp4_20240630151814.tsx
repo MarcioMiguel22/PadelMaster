@@ -14,7 +14,7 @@ import { todosResultadosInseridos4 } from '../../utils/utils4';
 import Titulo from '../../components/components_calculadora/Titulo';
 import NavBar from '../../components/components_calculadora/NavBar';
 import Background from '../../components/components_calculadora/Background';
-
+import Selector from '../../components/components_calculadora/Selector';
 import PlayerSelector from '../../components/components_calculadora/PlayerSelector';
 import { Jogador, Campo as CampoType } from '../../utils/types/types';
 
