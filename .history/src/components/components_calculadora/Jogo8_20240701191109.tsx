@@ -9,7 +9,7 @@ interface JogoProps {
   getTeamClass: (campo: CampoType, timeIndex: number) => string;
   selecionarJogador: (jogador: Jogador) => void;
   jogadoresSelecionados: Jogador[];
-  trocarJogadores: (jogoIndex: number, campoId: number) => void;
+  trocarJogadores: (campoId: number) => void;
 }
 
 const Jogo8: React.FC<JogoProps> = ({

@@ -1,3 +1,5 @@
+// src/utils/utils8.ts
+
 import { Campo as CampoType, Jogador, Time } from './types/types';
 
 
@@ -41,24 +43,35 @@ export const atualizarRanking8 = (jogadores: Jogador[], jogos: CampoType[][]): J
   return jogadoresAtualizados.sort((a, b) => b.totalPontos - a.totalPontos);
 };
 
-export const trocarJogadores8 = (jogos: CampoType[][], campoId: number): CampoType[][] => {
-  const novosJogos = [...jogos];
-  const ultimoJogo = novosJogos[novosJogos.length - 1];
-  const campo = ultimoJogo.find(c => c.id === campoId);
-  if (!campo) return novosJogos;
-
-  const [time1, time2] = campo.times;
-  const jogadoresCampo = [...time1.jogadores, ...time2.jogadores];
-
-  // Embaralhar jogadores que chegaram ao campo
-  const jogadoresEmbaralhados = embaralharArray(jogadoresCampo);
-
-  campo.times = [
-    { jogadores: jogadoresEmbaralhados.slice(0, 2), resultado: 0 },
-    { jogadores: jogadoresEmbaralhados.slice(2, 4), resultado: 0 },
+export const trocarJogadores8 = (jogos: CampoType[][]): CampoType[][] => {
+  const ultimoJogo = jogos[jogos.length - 1];
+  const novosCampos: CampoType[] = [
+    { id: 1, times: [] },
+    { id: 2, times: [] },
   ];
 
-  return novosJogos;
+  const campo1 = ultimoJogo.find(campo => campo.id === 1);
+  const campo2 = ultimoJogo.find(campo => campo.id === 2);
+
+  if (campo1 && campo2) {
+    const [time1Campo1, time2Campo1] = campo1.times;
+    const [time1Campo2, time2Campo2] = campo2.times;
+
+    // Embaralhar jogadores dos campos
+    const jogadoresEmbaralhados = embaralharArray([...time1Campo1.jogadores, ...time2Campo1.jogadores, ...time1Campo2.jogadores, ...time2Campo2.jogadores]);
+
+    novosCampos[0].times.push(
+      { jogadores: jogadoresEmbaralhados.slice(0, 2), resultado: 0 },
+      { jogadores: jogadoresEmbaralhados.slice(2, 4), resultado: 0 }
+    );
+
+    novosCampos[1].times.push(
+      { jogadores: jogadoresEmbaralhados.slice(4, 6), resultado: 0 },
+      { jogadores: jogadoresEmbaralhados.slice(6, 8), resultado: 0 }
+    );
+  }
+
+  return [...jogos, novosCampos];
 };
 
 export const iniciarProximoJogo8 = (jogos: CampoType[][]): CampoType[][] => {

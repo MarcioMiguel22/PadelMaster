@@ -1,3 +1,5 @@
+// src/utils/utils8.ts
+
 import { Campo as CampoType, Jogador, Time } from './types/types';
 
 
@@ -39,26 +41,6 @@ export const atualizarRanking8 = (jogadores: Jogador[], jogos: CampoType[][]): J
   });
 
   return jogadoresAtualizados.sort((a, b) => b.totalPontos - a.totalPontos);
-};
-
-export const trocarJogadores8 = (jogos: CampoType[][], campoId: number): CampoType[][] => {
-  const novosJogos = [...jogos];
-  const ultimoJogo = novosJogos[novosJogos.length - 1];
-  const campo = ultimoJogo.find(c => c.id === campoId);
-  if (!campo) return novosJogos;
-
-  const [time1, time2] = campo.times;
-  const jogadoresCampo = [...time1.jogadores, ...time2.jogadores];
-
-  // Embaralhar jogadores que chegaram ao campo
-  const jogadoresEmbaralhados = embaralharArray(jogadoresCampo);
-
-  campo.times = [
-    { jogadores: jogadoresEmbaralhados.slice(0, 2), resultado: 0 },
-    { jogadores: jogadoresEmbaralhados.slice(2, 4), resultado: 0 },
-  ];
-
-  return novosJogos;
 };
 
 export const iniciarProximoJogo8 = (jogos: CampoType[][]): CampoType[][] => {

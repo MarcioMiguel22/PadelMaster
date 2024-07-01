@@ -90,8 +90,8 @@ const CalculadoraApp8: React.FC = () => {
     setJogadores(atualizarRanking8(jogadores, novosJogos));
   };
 
-  const handleTrocarJogadores = (jogoIndex: number, campoId: number) => {
-    const novosJogos = trocarJogadores8(jogos, campoId);
+  const handleTrocarJogadores = () => {
+    const novosJogos = trocarJogadores8(jogos);
     setJogos(novosJogos);
   };
 
@@ -153,7 +153,7 @@ const CalculadoraApp8: React.FC = () => {
                 getTeamClass={getTeamClass}
                 selecionarJogador={handleSelecionarJogador}
                 jogadoresSelecionados={jogadoresSelecionados}
-                trocarJogadores={handleTrocarJogadores} // Passando a função aqui
+                trocarJogadores={handleTrocarJogadores}
               />
             </div>
           ))}

@@ -309,24 +309,4 @@ body {
 
   .team input.resultado-input {
     margin-left: 80px;
-    margin-top: 25px;
-  }
-
-  .ranking-container {
-    flex-flow: column;
-    margin-top: 40px;
-  }
-
-  .ranking-container h2 {
-    margin-bottom: 10px;
-  }
-
-  .ranking-container ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  .ranking-container li {
-    margin: 5px 0;
-  }
-}
+    margin-top: 25px
